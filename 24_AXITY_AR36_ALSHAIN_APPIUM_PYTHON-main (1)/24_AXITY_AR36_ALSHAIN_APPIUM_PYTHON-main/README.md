@@ -17,13 +17,21 @@
  - Paso 2: Para instalar Appium y UI2automator driver abrir la consola de comandos (CMD) y poner los siguientes comandos:​
      - npm i --location=global appium​
      - appium driver install uiautomator2​
+
+  
      Nota: Abrir la consola de comandos (CMD) en modo administrador. En caso de que alguno de los dos comandos no ejecute intentar con 
      los siguientes:
+
      -npm install appium
+   
      -npm install -g npm@10.8.3
+   
      -npm cache clean --force
+   
      -npm install --location=global appium
+   
      -npm install -g appium
+   
      -appium driver install uiautomator2   
 
  - Paso 4: Mover carpeta de Platform - Tools a nuestro disco C:/​
