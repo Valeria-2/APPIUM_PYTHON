@@ -19,8 +19,8 @@
      - appium driver install uiautomator2​
 
   
-     Nota: Abrir la consola de comandos (CMD) en modo administrador. En caso de que alguno de los dos comandos no ejecute intentar con 
-     los siguientes:
+     Nota: Abrir la consola de comandos (CMD) en modo administrador. En caso de que alguno de los dos comandos no ejecute puedes 
+     considerar alguno de las siguientes opciones, dependerá de las configuraciones en caché de tu equipo el comando más adecuado :
 
      -npm install appium
    
