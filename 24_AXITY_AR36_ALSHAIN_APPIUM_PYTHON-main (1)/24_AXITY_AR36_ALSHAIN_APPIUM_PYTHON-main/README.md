@@ -57,6 +57,7 @@
 - Paso 1: Abrir Android Studio​
 - Paso 2: Crear proyecto ​
 - Paso 3: En "Phone and Tablet" Seleccionar "No Activity"​
+  
   Nota: Dependiendo el proyecto usar una versión especifica del Android.
 - Paso 4: Guardar Proyecto​
 - Paso 5: En la barra lateral derecha seleccionar "Device Manager"​
