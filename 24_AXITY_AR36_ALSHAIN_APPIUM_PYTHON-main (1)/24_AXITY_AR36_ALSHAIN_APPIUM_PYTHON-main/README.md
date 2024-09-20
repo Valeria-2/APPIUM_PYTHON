@@ -2,7 +2,7 @@
 - Alshain es un ARTE basado en la herramienta de automatización de pruebas Appium, diseñado para realizar pruebas automatizadas en aplicaciones móviles y web. Escrito en Python, integra bibliotecas y complementos que permiten realizar pruebas exhaustivas de funcionalidades, asegurando la calidad y el correcto funcionamiento de las aplicaciones. Los resultados de las pruebas se recopilan y presentan utilizando variedades de librerías, proporcionando informes detallados que incluyen resultados de las pruebas ejecutadas, facilitando así el análisis y la mejora continua de las aplicaciones.
 
 ## Requerimientos de Software​
- - 1. PyCharm: https://www.jetbrains.com/pycharm/download/?section=windows
+ - 1. PyCharm: https://www.jetbrains.com/pycharm/download/?section=windows Nota: Descargar la versión Community Edition .exe.
  - 2. Python: https://www.python.org/downloads/
  - 3. Appium  (*Se instalan por comandos en CMD. Primero descargar Node JS*​)
  - 4. Appium Inspector (Para Inspeccionar Elementos en la App): https://github.com/appium/appium-inspector/releases
