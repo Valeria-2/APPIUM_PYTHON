@@ -130,10 +130,11 @@
 
 ## Ejecución de una prueba
 ### Ejecutar un caso de prueba 
-  - Paso 1: Seleccionar el script donde están los casos de prueba
+  - Paso 1: Seleccionar el script donde están los casos de prueba.
   ![inicio](./assets/Paso1_SeleccionarScriptdePruebas.png)
 
-  - Paso 2: Ubicar el caso de prueba a ejecutar y dar click sobre el triangulo verde
+  - Paso 2: Abrir el CMD añadiendo los siguientes comandos: 'pip install selenium' 'pip install Appium-Python-Client'.
+  Ubicar el caso de prueba a ejecutar y dar click sobre el triangulo verde
    ![inicio](./assets/Paso2_ClickFlechaverde.png)
 
   - Paso 3: Se abre el menu y dar click sobre "Run Python test"
