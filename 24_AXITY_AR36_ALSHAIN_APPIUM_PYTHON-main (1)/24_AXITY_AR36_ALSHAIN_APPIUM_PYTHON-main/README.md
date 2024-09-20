@@ -138,6 +138,7 @@
   ![inicio](./assets/Paso1_SeleccionarScriptdePruebas.png)
 
   - Paso 2: Abrir el CMD añadiendo los siguientes comandos: 'pip install selenium' 'pip install Appium-Python-Client'.
+  
   Ubicar el caso de prueba a ejecutar y dar click sobre el triangulo verde
    ![inicio](./assets/Paso2_ClickFlechaverde.png)
 
