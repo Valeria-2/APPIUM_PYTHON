@@ -75,16 +75,16 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 4. En la carpeta de main encontraremos las carpetas:
 
-   - **config**: 
+   - **config**: <br>
    En la clase WebConfig.cs, actúa como un contenedor para almacenar configuraciones relacionadas con la URL del sitio web que se está probando. Al definir esta configuración de URL como una propiedad estática en una clase separada, permite que la URL sea fácilmente accesible y modificable desde otras partes del código sin necesidad de cambiar el valor directamente en cada lugar donde se utiliza la URL. Esto hace que el código sea más modular y fácil de mantener.
 
-   - **core**: 
+   - **core**: <br>
    Las clases BaseChromeTest.cs, BaseEdgeTest.cs y BaseTestFirefox.cs actúan como una abstracción para la configuración y finalización del controlador de Google Chrome, Microsoft Edge y Mozilla FireFox, lo que permite que las pruebas se centren en la lógica de la aplicación sin preocuparse por la inicialización y limpieza del navegador. Además, proporciona métodos auxiliares para iniciar el navegador con configuraciones específicas, como una versión específica del navegador.
 
-   - **pages**: 
+   - **pages**: <br>
    En resumen, la clase LogInPage.cs proporciona métodos para interactuar con los elementos de la página de inicio de sesión, como ingresar credenciales de usuario y hacer clic en el botón de inicio de sesión, y también proporciona un método para verificar si la página de inicio de sesión está completamente cargada, mientras que la clase MainPage.cs permite interactuar con elementos específicos en la página principal de un sitio web, incluido el ingreso de un nombre en un campo de entrada después de haber iniciado sesión con un usuario específico.
 
-   - **util**: 
+   - **util**: <br>
    En resumen, la clase Actions.cs proporciona una abstracción para realizar acciones comunes en páginas web utilizando Selenium WebDriver, lo que permite un código más limpio y mantenible al encapsular la lógica de Selenium en métodos reutilizables mientras que la clase DataHelper.cs proporciona una forma conveniente de leer datos de un archivo Excel y utilizarlos como casos de prueba en pruebas automatizadas. Esto puede ser útil para realizar pruebas de datos múltiples o pruebas de regresión con conjuntos de datos variados. 
    
    La clase constantes.cs proporciona un lugar centralizado para definir y acceder a constantes utilizadas en todo el proyecto, lo que facilita la modificación y la consistencia en el uso de estos valores en diferentes partes del código. Las constantes definidas aquí pueden ser referenciadas desde otras clases dentro del proyecto para evitar la repetición de valores literales en el código y mejorar la legibilidad y mantenibilidad del mismo.
