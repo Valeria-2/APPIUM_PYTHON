@@ -167,6 +167,25 @@
   - Paso 5: Visualizar el Resultado de nuestra prueba si PASSED o FAILED
   ![inicio](./assets/Paso5_resultadomultiple.png)
 
+## Contribución 
+  Si la solución es de código abierto, incluye pautas sobre cómo contribuir al proyecto, como instrucciones para enviar solicitudes de extracción, reportar problemas, etc.
+  
+  Para realizar contribuciones a este proyecto se debe realizar un backup de la solución de manera local para que se adapte a las necesidades del proyecto en donde se desea implementar
+
+## Créditos 
+- Mauricio Gurrola Sánchez
+- Valeria Cortés Jaime
+
+## Licencia 
+
+Especifica la licencia bajo la cual se distribuye la solución y cualquier otra información legal relevante.
+
+## Contacto
+
+-Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com
+-Valeria Cortés Jaime             valeria.cortesj@axity.com
+
+
 
 
    
