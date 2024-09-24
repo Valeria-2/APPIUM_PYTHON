@@ -8,7 +8,7 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 1. Ingresar a la URL: <br>
 
-            https://github.com/Valeria-2/APPIUM_PYTHON.git)
+            https://github.com/Valeria-2/APPIUM_PYTHON.git
 
 2. Ingresar a la sección Code (Seleccionar alguna de las opciones para clonar el repositorio de manera local)
       - **Utilizando la URL**: https://github.com/Valeria-2/APPIUM_PYTHON.git
