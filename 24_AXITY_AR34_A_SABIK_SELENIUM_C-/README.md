@@ -1,6 +1,6 @@
 ## Arquetipo Selenium 
 
-Este repositorio cuenta con un arquetipo el cual está customizado para la generación de scripts automatizados basados en Selenium Web Driver, Csharp y NUnit como Framework de Testing. La estructura aquí presentada está diseñada con el objetivo de estandarizar la generación y mantenimiento del script automatizado basado en buenas practicas que dicta la industria.
+Este repositorio contiene un arquetipo personalizado para la generación de scripts automatizados utilizando Selenium Web Driver, C# y NUnit como framework de testing. La estructura propuesta está diseñada con el objetivo de estandarizar la creación y el mantenimiento de scripts automatizados, siguiendo las buenas prácticas recomendadas por la industria.
 
 ## Instalación 
 
@@ -8,10 +8,10 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 1. Ingresar a la URL: <br>
 
-            -https://github.com/Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-
+            https://github.com/Valeria-2/APPIUM_PYTHON.git)
 
 2. Ingresar a la sección Code (Seleccionar alguna de las opciones para clonar el repositorio de manera local)
-      - **Utilizando la URL**: https://github.com/Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-.git
+      - **Utilizando la URL**: https://github.com/Valeria-2/APPIUM_PYTHON.git
       - **Utilizando la instrucción** gh repo clone Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-:
         - **Abrirlo con GitHub Desktop**
         - **Abrirlo con Visual Studio**
