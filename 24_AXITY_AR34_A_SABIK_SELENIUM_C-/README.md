@@ -183,16 +183,16 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
   Para realizar contribuciones a este proyecto se debe realizar un backup de la solución de manera local para que se adapte a las necesidades del proyecto en donde se desea implementar
 
 ## Créditos 
-  ---Mauricio Gurrola Sánchez
-  ---Gustavo David Ramírez Ledesma
-  ---Osvaldo Alfredo Zamora Reyes
+      - Mauricio Gurrola Sánchez
+      - Gustavo David Ramírez Ledesma
+        -Osvaldo Alfredo Zamora Reyes
 
 ## Licencia 
 
-// Especifica la licencia bajo la cual se distribuye la solución y cualquier otra información legal relevante.
+Especifica la licencia bajo la cual se distribuye la solución y cualquier otra información legal relevante.
 
 ## Contacto
 
-  ---Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com
-  ---Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com
-  ---Osvaldo Alfredo Zamora Reyes     osvaldo.zamor@axity.com
+        -Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com
+        -Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com
+        -Osvaldo Alfredo Zamora Reyes     osvaldo.zamor@axity.com
