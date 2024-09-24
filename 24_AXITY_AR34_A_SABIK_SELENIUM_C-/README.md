@@ -6,7 +6,9 @@ Este repositorio cuenta con un arquetipo el cual está customizado para la gener
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
-1. Ingresar a la URL: https://github.com/Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-
+1. Ingresar a la URL: <br>
+
+            -https://github.com/Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-
 
 2. Ingresar a la sección Code (Seleccionar alguna de las opciones para clonar el repositorio de manera local)
       - **Utilizando la URL**: https://github.com/Axitymx/24_AXITY_AR34_A_SABIK_SELENIUM_C-.git
@@ -183,9 +185,9 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
   Para realizar contribuciones a este proyecto se debe realizar un backup de la solución de manera local para que se adapte a las necesidades del proyecto en donde se desea implementar
 
 ## Créditos 
-      - Mauricio Gurrola Sánchez
-      - Gustavo David Ramírez Ledesma
-        -Osvaldo Alfredo Zamora Reyes
+- Mauricio Gurrola Sánchez
+- Gustavo David Ramírez Ledesma
+-Osvaldo Alfredo Zamora Reyes
 
 ## Licencia 
 
@@ -193,6 +195,6 @@ Especifica la licencia bajo la cual se distribuye la solución y cualquier otra 
 
 ## Contacto
 
-        -Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com
-        -Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com
-        -Osvaldo Alfredo Zamora Reyes     osvaldo.zamor@axity.com
+-Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com
+-Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com
+-Osvaldo Alfredo Zamora Reyes     osvaldo.zamor@axity.com
