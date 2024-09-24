@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Src\test\test_cases\TC_2E2\**" />
+    <EmbeddedResource Remove="Src\test\test_cases\TC_2E2\**" />
+    <None Remove="Src\test\test_cases\TC_2E2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="C:\Users\Mauricio.Gurrola\.nuget\packages\seleniumproxyauthentication.firefox\1.0.2\contentFiles\any\net6.0\reality_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DotNetSeleniumExtras.WaitHelpers" Version="3.11.0" />
+    <PackageReference Include="EPPlus" Version="7.1.1" />
+    <PackageReference Include="ExcelDataReader" Version="3.6.0" />
+    <PackageReference Include="ExcelDataReader.DataSet" Version="3.6.0" />
+    <PackageReference Include="itext7" Version="8.0.3" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.3" />
+    <PackageReference Include="itext7.commons" Version="8.0.3" />
+    <PackageReference Include="itext7.pdfhtml" Version="5.0.3" />
+    <PackageReference Include="itext7.pdfoptimizer" Version="3.0.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="NUnit" Version="4.1.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.27.0" />
+    <PackageReference Include="Selenium.Mozilla.Firefox.Webdriver" Version="0.6.0.1" />
+    <PackageReference Include="Selenium.Support" Version="4.19.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.19.0" />
+    <PackageReference Include="Selenium.WebDriver.GeckoDriver" Version="0.34.0" />
+    <PackageReference Include="SeleniumExtras.WaitHelpers" Version="1.0.2" />
+    <PackageReference Include="SeleniumProxyAuthentication.Firefox" Version="1.0.2" />
+    <PackageReference Include="Sl.Selenium.Extensions.Firefox" Version="2.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Src\drivers\" />
+    <Folder Include="Src\test\screenshots\" />
+    <Folder Include="Src\test\test_cases\TC_Botones\Firefox\" />
+    <Folder Include="Src\test\test_cases\TC_Botones\Edge\" />
+    <Folder Include="Src\test\test_cases\TC_Navegacion\Firefox\" />
+    <Folder Include="Src\test\test_cases\TC_Texto\Firefox\" />
+    <Folder Include="Src\test\test_cases\TC_Texto\Edge\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="src\insumos\A4\devsecops.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\insumos\A4\Encabezado.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\insumos\A4\Pleca.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\insumos\Fonts\azonix.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="src\insumos\Fonts\futura.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
