@@ -1,0 +1,3199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>itext.pdfoptimizer</name>
+    </assembly>
+    <members>
+        <member name="T:iText.Pdfoptimizer.AbstractOptimizationHandler">
+            <summary>
+            This is the abstract class for optimization handlers which are used to cover a certain
+            optimization of
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.AbstractOptimizationHandler.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Performs an optimization of the document.</summary>
+            <remarks>
+            Performs an optimization of the document. The method is not designed to be invoked directly.
+            For a correct optimization process use methods of
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizer"/>
+            class.
+            </remarks>
+            <param name="document">
+            is the PDF document to optimize. Invocation of the method can change the
+            state of the object
+            </param>
+            <param name="session">
+            is an auxiliary object used to support share data between stages of
+            optimization process
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.AbstractOptimizationHandler.PrepareAndRunOptimization(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Performs some ancillary work and runs
+            <see cref="M:iText.Pdfoptimizer.AbstractOptimizationHandler.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)"/>
+            method.
+            </summary>
+            <param name="document">
+            is the PDF document to optimize. Invocation of the method can change the
+            state of the object
+            </param>
+            <param name="session">
+            is an auxiliary object used to support share data between stages of
+            optimization process
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Actions.Data.PdfOptimizerProductData">
+            <summary>
+            Stores an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to iText pdfOptimizer module.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Actions.Data.PdfOptimizerProductData.GetInstance">
+            <summary>
+            Getter for an instance of
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            related to pdfOptimizer module.
+            </summary>
+            <returns>iText pdfOptimizer product description</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Actions.Events.PdfOptimizerProductEvent">
+            <summary>Class represents events registered in iText pdfOptimizer module.</summary>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Actions.Events.PdfOptimizerProductEvent.OPTIMIZE_PDF">
+            <summary>Optimize PDF event type.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Actions.Events.PdfOptimizerProductEvent.#ctor(iText.Commons.Actions.Sequence.SequenceId,iText.Commons.Actions.Contexts.IMetaInfo,System.String)">
+            <summary>Creates an event associated with a general identifier and additional metadata.</summary>
+            <param name="sequenceId">is an identifier associated with the event</param>
+            <param name="metaInfo">is an additional meta info</param>
+            <param name="eventType">is a string description of the event</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Actions.Events.PdfOptimizerProductEvent.CreateOptimizePdfEvent(iText.Commons.Actions.Sequence.SequenceId,iText.Commons.Actions.Contexts.IMetaInfo)">
+            <summary>Creates an optimize-pdf event which is associated with a general identifier and additional metadata.
+                </summary>
+            <param name="sequenceId">is an identifier associated with the event</param>
+            <param name="metaInfo">is an additional meta info</param>
+            <returns>the optimize pdf event</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerException">
+            <summary>Exception class for exceptions in pdfOptimizer module.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Exceptions.PdfOptimizerException.#ctor(System.String)">
+            <summary>
+            Creates a new instance of
+            <see cref="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerException"/>
+            message.
+            </summary>
+            <param name="message">the detail message</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant">
+            <summary>Class that bundles all the exception message templates as constants.</summary>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.INVALID_COMPRESSION_PARAMETER">
+            <summary>Message notifies that compression parameter is out of range [0., 1.].</summary>
+            <remarks>
+            Message notifies that compression parameter is out of range [0., 1.]. This is a parametrized
+            constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an actual invalid value of scaling.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.INVALID_SCALING_PARAMETER">
+            <summary>Message notifies that scaling parameter is out of range [0., 1.].</summary>
+            <remarks>
+            Message notifies that scaling parameter is out of range [0., 1.]. This is a parametrized
+            constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an actual invalid value of scaling.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.PIXEL_OUT_OF_BORDERS">
+            <summary>Message notifies about access to a pixel which is out of borders of the image.</summary>
+            <remarks>
+            Message notifies about access to a pixel which is out of borders of the image. This is a
+            parametrized constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an x-coordinate of accessed pixel;
+            </description></item>
+            <item><description>1st is a y-coordinate of accessed pixel;
+            </description></item>
+            <item><description>2nd is a width of the image;
+            </description></item>
+            <item><description>3rd is a height of the image.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.LENGTH_OF_ARRAY_SHOULD_MATCH_NUMBER_OF_COMPONENTS">
+            <summary>Message notifies that pixel representation doesn't match current color scheme presentation.</summary>
+            <remarks>
+            Message notifies that pixel representation doesn't match current color scheme presentation.
+            Length of array should match number of component of colorspace. This is a
+            parametrized constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is a length of array;
+            </description></item>
+            <item><description>1st is a number of components of color space.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.MASKED_COLORS_HAVE_DIFFERENT_LENGTHS">
+            <summary>
+            Message notifies about attempt to create a
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.MaskColors"/>
+            with range of colors defined by
+            two colors with different number of components.
+            </summary>
+            <remarks>
+            Message notifies about attempt to create a
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.MaskColors"/>
+            with range of colors defined by
+            two colors with different number of components. This is a parametrized constant and it
+            should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method
+            before using. List of params:
+            <list type="bullet">
+            <item><description>0th is a number of components of the first color which is considered as minimum masked
+            color;
+            </description></item>
+            <item><description>1th is a number of components of the second color which is considered as maximum masked
+            color.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.MASK_ARRAY_SHOULD_HAVE_EVEN_POSITIVE_LENGTHS">
+            <summary>Message notifies that /Mask array has unexpected length.</summary>
+            <remarks>
+            Message notifies that /Mask array has unexpected length. Its length should be an even
+            positive number.  This is a parametrized constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an actual length of array.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.MASK_ARRAY_DOES_NOT_CORRESPOND_WITH_CONVERTER">
+            <summary>Message notifies that /Mask array has unexpected length.</summary>
+            <remarks>
+            Message notifies that /Mask array has unexpected length. Its length should correspond with
+            the color converter: <c>2 * numberOfColorSpaceComponents</c>. This is a parametrized
+            constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an actual length of mask array;
+            </description></item>
+            <item><description>1st is a length expected for the color cpace defined by the converter.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.INVALID_DATA_LENGTH">
+            <summary>Message notifies that the passed data length does not match the expected data length.</summary>
+            <remarks>
+            Message notifies that the passed data length does not match the expected data length. The expected
+            length is calculated based on the passed parameters of height, width, bits per pixel and number
+            of components. This is a parametrized constant and it should be processed with
+            <see cref="M:iText.Commons.Utils.MessageFormatUtil.Format(System.String,System.Object[])"/>
+            method before using. List of params:
+            <list type="bullet">
+            <item><description>0th is an expected data length
+            </description></item>
+            <item><description>1st is an passed data length
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Exceptions.PdfOptimizerExceptionMessageConstant.INVALID_OUTPUT_INTENT_ICC_PROFILE_COLOR_SPACE">
+            <summary>
+            Message notifies that the passed output intent store incorrect Icc profile
+            color space for current color space converter instance.
+            </summary>
+            <remarks>
+            Message notifies that the passed output intent store incorrect Icc profile
+            color space for current color space converter instance. List of params:
+            <list type="bullet">
+            <item><description>0th is an expected Icc profile color space
+            </description></item>
+            <item><description>1st is an passed output intent Icc profile color space
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.ColorSpaceConverter">
+            <summary>
+            This is the class is used to convert color space of objects located in the transferred
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ColorSpaceConverter.GetCsConverter">
+            <summary>Gets a current color space converter instance.</summary>
+            <returns>
+            a current
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.ICsConverter"/>
+            instance
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ColorSpaceConverter.SetCsConverter(iText.Pdfoptimizer.Handlers.Converters.ICsConverter)">
+            <summary>Sets a color space converter instance.</summary>
+            <param name="csConverter">is a converter to set</param>
+            <returns>this instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ColorSpaceConverter.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            The method searches across all the document and for each found
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            performs an color converting according with defined color space converter.
+            </summary>
+            <remarks>
+            The method searches across all the document and for each found
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            performs an color converting according with defined color space converter. And
+            performs an color converting for content streams and their resources. And removes
+            PDF\A id schemas from PDF XMP metadata.
+            </remarks>
+            <param name="document">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.CompressionOptimizer">
+            <summary>
+            Performs maximal compression of every
+            <see cref="T:iText.Kernel.Pdf.PdfStream"/>
+            and full compression of the
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>.
+            </summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter">
+            <summary>
+            This is the abstract class for color space converters which are used to convert
+            PDF objects in the original color space to PDF objects in target color space.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.#ctor(iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties)">
+            <summary>
+            Creates an
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter"/>.
+            </summary>
+            <param name="csConverterProperties">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            to be used by this
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertImageCs(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts passed image in original color space to image in target color space.</summary>
+            <param name="imageToConvert">the image in original color space</param>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+            <returns>the image in target color space if converting can be performed and the same instance otherwise</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertContentStream(iText.Kernel.Pdf.PdfStream,iText.Kernel.Pdf.PdfResources,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of the passed content stream.</summary>
+            <remarks>
+            Converts color space of the passed content stream. Note that this method
+            does not process content stream resources and passed external resources.
+            Also, this method saves resources for their subsequent processing within
+            the
+            <see cref="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertStoredResources(iText.Pdfoptimizer.OptimizationSession)"/>
+            method.
+            </remarks>
+            <param name="stream">
+            
+            <inheritDoc/>
+            </param>
+            <param name="externalResources">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertStoredResources(iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of the stored content stream resources.</summary>
+            <remarks>
+            Converts color space of the stored content stream resources. Resource stored takes place
+            within the
+            <see cref="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertContentStream(iText.Kernel.Pdf.PdfStream,iText.Kernel.Pdf.PdfResources,iText.Pdfoptimizer.OptimizationSession)"/>
+            method.
+            Note that this method should be called after all content streams have been processed.
+            </remarks>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertAnnotationIcArray(iText.Kernel.Pdf.PdfArray)">
+            <summary>Converts annotation interior color array by using of current color converter.</summary>
+            <param name="icArray">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.GetOriginalCsClass">
+            <summary>Gets original color space class.</summary>
+            <remarks>
+            Gets original color space class. The result of this method is
+            used to check that passed PDF object has a necessary color space.
+            </remarks>
+            <returns>the original color space class</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.GetColorConverter">
+            <summary>
+            Gets
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            for appropriate convertion.
+            </summary>
+            <remarks>
+            Gets
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            for appropriate convertion. The result of this method
+            is used for conversion and for filling necessary fields in converted PDF object.
+            </remarks>
+            <returns>the target color space name</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.CreateColorDecoder(System.Double[])">
+            <summary>
+            Creates
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <remarks>
+            Creates
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            . Shall be overriden by a subclass to support decode array
+            in image conversion.
+            </remarks>
+            <param name="decodeArray">decode array in image stream</param>
+            <returns>
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertOperatorParameters(System.Collections.Generic.IList{iText.Kernel.Pdf.PdfObject})">
+            <summary>Converts passed operator parameters color space.</summary>
+            <param name="operands">the operator with operator parameters</param>
+            <returns>the converted operator parameters without parameter</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter.ConvertContentStreamOperands(iText.Kernel.Pdf.Colorspace.PdfColorSpace,iText.Kernel.Pdf.Colorspace.PdfColorSpace,System.String,System.Collections.Generic.IList{iText.Kernel.Pdf.PdfObject},iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of passed PDF content stream operands.</summary>
+            <param name="fillCs">the current fill color space</param>
+            <param name="strokeCs">the current stroke color space</param>
+            <param name="operator">the string representation of operator</param>
+            <param name="operands">the list which contains operands and operator</param>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+            <returns>the list of converted operands if converting can be performed and the same instance otherwise</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.CmykToRgbCsConverter">
+            <summary>Class is used to convert color space of PDF objects from DeviceCmyk to DeviceRgb.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CmykToRgbCsConverter.#ctor(iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties)">
+            <summary>
+            Creates a
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CmykToRgbCsConverter"/>.
+            </summary>
+            <param name="csConverterProperties">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            to be used by this
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CmykToRgbCsConverter"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CmykToRgbCsConverter.CreateColorDecoder(System.Double[])">
+            <summary>
+            Creates
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <param name="decodeArray">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode">
+            <summary>Enum is used to list available color conversion modes.</summary>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode.IGNORE_PDF_A_CONFORMANCE">
+            <summary>Ignore PDF\A conformance mode.</summary>
+            <remarks>
+            Ignore PDF\A conformance mode. In this mode color space will be converted in all supported
+            cases. If passed document to conversion is PDF/A document, PDF/A id schemas will be removed
+            from PDF XMP metadata, so PDF document will no longer be considered as PDF/A. Compatibility
+            checks for PDF/A conformance will be skipped.
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode.NORMAL">
+            <summary>Normal mode.</summary>
+            <remarks>
+            Normal mode. In this mode color space will be converted in all supported cases. If passed
+            document to conversion is PDF/A document, output intent is required (see
+            <see cref="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.SetOutputIntent(iText.Kernel.Pdf.PdfOutputIntent)"/>
+            method). If PDF/A conformance
+            cannot be maintained during conversion, an exception
+            <see cref="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerException"/>
+            will be thrown.
+            </remarks>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties">
+            <summary>
+            Properties that will be used by the
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.ICsConverter"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.#ctor(iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode)">
+            <summary>
+            Creates a
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            to be used while converting color spaces.
+            </summary>
+            <param name="conversionMode">
+            the
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode"/>
+            which will be respected
+            while using this
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.SetOutputIntent(iText.Kernel.Pdf.PdfOutputIntent)">
+            <summary>
+            Sets output intent instance which will be used for replacing original PDF output intent when
+            converting the color space.
+            </summary>
+            <remarks>
+            Sets output intent instance which will be used for replacing original PDF output intent when
+            converting the color space. Important note, setting output intent by calling this method is
+            required when
+            <see cref="F:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode.NORMAL"/>
+            mode is enabled and PDF\A document was passed
+            for color conversion, otherwise
+            <see cref="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerException"/>
+            exception will be thrown. Also,
+            if document didn't have output intent originally, then output intent will not be put to such document.
+            </remarks>
+            <param name="outputIntent">the output intent instance to set</param>
+            <returns>this instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.GetOutputIntent">
+            <summary>
+            Gets output intent instance which will be used for replacing original PDF output intent when
+            converting the color space.
+            </summary>
+            <remarks>
+            Gets output intent instance which will be used for replacing original PDF output intent when
+            converting the color space. Important note, setting output intent by calling
+            <see cref="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.SetOutputIntent(iText.Kernel.Pdf.PdfOutputIntent)"/>
+            method is required when
+            <see cref="F:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode.NORMAL"/>
+            mode is enabled and PDF\A document was passed for color
+            conversion, otherwise
+            <see cref="T:iText.Pdfoptimizer.Exceptions.PdfOptimizerException"/>
+            exception will be thrown. Also, if
+            document didn't have output intent originally, then output intent will not be put to such document.
+            </remarks>
+            <returns>the output intent instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties.GetConversionMode">
+            <summary>
+            Gets the
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode"/>
+            which is respected while converting color spaces
+            using this
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            instance.
+            </summary>
+            <returns>
+            the used
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.ColorConversionMode"/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.ICsConverter">
+            <summary>Interface for color space converting of PDF objects.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.ConvertImageCs(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of passed image.</summary>
+            <param name="imageToConvert">the image for which color space should be converting</param>
+            <param name="session">
+            is an auxiliary object used to support share data between stages of
+            optimization process
+            </param>
+            <returns>the image with converted color space if converting can be performed and the same instance otherwise
+                </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.ConvertContentStream(iText.Kernel.Pdf.PdfStream,iText.Kernel.Pdf.PdfResources,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of the passed content stream.</summary>
+            <remarks>
+            Converts color space of the passed content stream. Note that this method does not process content
+            stream resources and passed external resources. This method doesn't convert transparency group
+            entry, for it use
+            <see cref="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.AttemptToConvertTransparencyGroup(iText.Kernel.Pdf.PdfObject,iText.Pdfoptimizer.OptimizationSession)"/>
+            method.
+            </remarks>
+            <param name="contentStream">the PDF content stream instance for conversion</param>
+            <param name="externalResources">
+            the external content stream resources. Used in the case when the page
+            content stream is converted, and the resources are stored not in the
+            content stream but in the page dictionary. In other case should be null
+            </param>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+            <returns>
+            the content stream with converted color space if converting
+            can be performed and the same instance otherwise
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.ConvertStoredResources(iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Converts color space of the stored content stream resources.</summary>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.ConvertAnnotationIcArray(iText.Kernel.Pdf.PdfArray)">
+            <summary>Converts annotation interior color array.</summary>
+            <param name="icArray">the interior color array</param>
+            <returns>the converted interior color array if converting can be performed and the same instance otherwise
+                </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.AttemptToConvertTransparencyGroup(iText.Kernel.Pdf.PdfObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Attempt to converts transparency group dictionary which stored in passed groupEntryHolder PDF object,
+            if this groupEntryHolder can store transparency group by PDF specification.
+            </summary>
+            <param name="groupEntryHolder">the PDF object which stored transparency group dictionary to convert</param>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.ICsConverter.GetConverterProperties">
+            <summary>Gets current converter properties instance.</summary>
+            <returns>the converter properties instance</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.IdleEventListener">
+            <summary>Event listener class which to do nothing with events.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.PdfCanvasCsConverter">
+            <summary>Processor for converting PDF content stream color space.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.PdfCanvasCsConverter.#ctor(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.Handlers.Converters.AbstractCsConverter,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Instantiates a new
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.PdfCanvasCsConverter"/>
+            instance based
+            on PDF document and color space converter.
+            </summary>
+            <param name="document">the document that the resulting content stream will be written to</param>
+            <param name="csConverter">the color space converter instance</param>
+            <param name="session">is an auxiliary object used to support share data between stages of optimization process
+                </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.PdfCanvasCsConverter.GetCanvas">
+            <summary>Gets resulting PDF canvas.</summary>
+            <returns>the PDF canvas instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.PdfCanvasCsConverter.InvokeOperator(iText.Kernel.Pdf.PdfLiteral,System.Collections.Generic.IList{iText.Kernel.Pdf.PdfObject})">
+            <summary>Process PDF content stream operators.</summary>
+            <remarks>
+            Process PDF content stream operators. If it is operator which define
+            or use color space, his operands will be converted by calling the
+            <see cref="!:AbstractCsConverter.ConvertContentStreamOperands(iText.Kernel.Pdf.Colorspace.PdfColorSpace, iText.Kernel.Pdf.Colorspace.PdfColorSpace, System.String, System.Collections.Generic.IList&lt;E&gt;, iText.Pdfoptimizer.OptimizationSession)"/>
+            method and then written to the resulting PDF canvas, otherwise operator with operands
+            will be immediately written to th resulting PDF canvas.
+            </remarks>
+            <param name="operator">
+            
+            <inheritDoc/>
+            </param>
+            <param name="operands">
+            
+            <inheritDoc/>
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Converters.RgbToCmykCsConverter">
+            <summary>Class is used to convert color space of PDF objects from DeviceRgb to DeviceCmyk.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.RgbToCmykCsConverter.#ctor(iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties)">
+            <summary>
+            Creates a
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.RgbToCmykCsConverter"/>.
+            </summary>
+            <param name="csConverterProperties">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.CsConverterProperties"/>
+            to be used by this
+            <see cref="T:iText.Pdfoptimizer.Handlers.Converters.RgbToCmykCsConverter"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Converters.RgbToCmykCsConverter.CreateColorDecoder(System.Double[])">
+            <summary>
+            Creates
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <param name="decodeArray">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer">
+            <summary>Looks for font dictionary duplications and merged them.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>The method searches for font dictionaries in PdfDocuments and compare them.</summary>
+            <remarks>
+            The method searches for font dictionaries in PdfDocuments and compare them. If two
+            dictionaries are similar and can be merged into one then optimizer does it and replace
+            all old pdf dictionaries. Duplicated direct objects will be removed. Definitions of indirect
+            objects will be left, however if
+            <see cref="M:iText.Kernel.Pdf.PdfDocument.IsFlushUnusedObjects"/>
+            returns
+            <see langword="false"/>
+            then they will be ignored during flushing.
+            </remarks>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator">
+            <summary>
+            Class is used for flexible comparison of two instances of
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>.
+            </summary>
+            <remarks>
+            Class is used for flexible comparison of two instances of
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            . It allows to
+            provide a list of rules. According to the rules dictionary will be processed appropriately before
+            hash or equality calculation.
+            <para />
+            According to the contract of
+            <see cref="T:iText.Pdfoptimizer.Handlers.Fontduplication.Rules.IValueUpdateRule"/>
+            it is expected that rule applying should
+            not change the internal state of the objects included as values into original PdfDictionary.
+            Modified copies of the objects will be put into dictionary instead.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator.#ctor(System.Collections.Generic.IList{iText.Pdfoptimizer.Handlers.Fontduplication.Rules.IValueUpdateRule})">
+            <summary>Creates a new instance of the class.</summary>
+            <param name="rules">
+            is a list of rules for
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            processing
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator.GetHashCode(iText.Kernel.Pdf.PdfDictionary)">
+            <summary>
+            Applies rules passed to constructor
+            <see cref="!:PdfDictionaryEqualityCalculator(System.Collections.Generic.IList&lt;E&gt;)"/>
+            to provided
+            dictionary and then calculates its hash code using
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.GetHashCode(iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            </summary>
+            <remarks>
+            Applies rules passed to constructor
+            <see cref="!:PdfDictionaryEqualityCalculator(System.Collections.Generic.IList&lt;E&gt;)"/>
+            to provided
+            dictionary and then calculates its hash code using
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.GetHashCode(iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            <para />
+            For the same set of rules two instances will have equal hashCode if they are considered
+            as equal by
+            <see cref="M:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator.AreEqual(iText.Kernel.Pdf.PdfDictionary,iText.Kernel.Pdf.PdfDictionary)"/>
+            method.
+            </remarks>
+            <param name="dict">is a dictionary whose content-based hash code has to be calculated</param>
+            <returns>calculated content-based hash code for provided dictionary</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator.AreEqual(iText.Kernel.Pdf.PdfDictionary,iText.Kernel.Pdf.PdfDictionary)">
+            <summary>
+            Applies rules passed to constructor
+            <see cref="!:PdfDictionaryEqualityCalculator(System.Collections.Generic.IList&lt;E&gt;)"/>
+            to both
+            provided dictionaries and then compares them using
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqual(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            </summary>
+            <remarks>
+            Applies rules passed to constructor
+            <see cref="!:PdfDictionaryEqualityCalculator(System.Collections.Generic.IList&lt;E&gt;)"/>
+            to both
+            provided dictionaries and then compares them using
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqual(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            <para />
+            For the same set of rules if two instances are considered as equal they should also have
+            equals hashCodes calculated by
+            <see cref="M:iText.Pdfoptimizer.Handlers.Fontduplication.PdfDictionaryEqualityCalculator.GetHashCode(iText.Kernel.Pdf.PdfDictionary)"/>
+            method.
+            </remarks>
+            <param name="dict1">is the first dictionary to compare</param>
+            <param name="dict2">is the second dictionary to compare</param>
+            <returns>true if dictionaries are equal and false otherwise.</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontduplication.Predicates.FontDictionaryPredicate">
+            <summary>
+            Checks if current
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            is a font
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.Predicates.FontDictionaryPredicate.Test(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Checks that current object is a
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            and has key
+            <see cref="F:iText.Kernel.Pdf.PdfName.Type"/>
+            and
+            it si associated with the value
+            <see cref="F:iText.Kernel.Pdf.PdfName.Font"/>.
+            </summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontduplication.Rules.IValueUpdateRule">
+            <summary>The interface is used to make hash calculating / equality check more flexible.</summary>
+            <remarks>
+            The interface is used to make hash calculating / equality check more flexible. This rule will
+            pre-process dictionaries before comparison.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.Rules.IValueUpdateRule.Update(iText.Kernel.Pdf.PdfDictionary)">
+            <summary>
+            Change the
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            before hash calculating / equality check to allow more
+            flexible comparison logic.
+            </summary>
+            <remarks>
+            Change the
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            before hash calculating / equality check to allow more
+            flexible comparison logic. Note that it is not expected to change the internal state of any
+            object included into the original dictionary as a value. New object should be put instead.
+            </remarks>
+            <param name="pdfDictionary">is a PdfDictionary to modify</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontduplication.Rules.RemoveSubsetPrefixRule">
+            <summary>
+            This rule removes prefix in AAAAAA+ format (six latin letters in upper case and plus
+            sign) when performing equality check or hash calculation for font
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontduplication.Rules.RemoveSubsetPrefixRule.Update(iText.Kernel.Pdf.PdfDictionary)">
+            <summary>
+            Modifies the dictionary to remove random prefix in AAAAAA+ format (six latin letters in upper
+            case and plus sign) from name of the font.
+            </summary>
+            <remarks>
+            Modifies the dictionary to remove random prefix in AAAAAA+ format (six latin letters in upper
+            case and plus sign) from name of the font. Removes the prefix from the following values:
+            <list type="bullet">
+            <item><description>
+            <see cref="T:iText.Kernel.Pdf.PdfName"/>
+            value associated with key
+            <see cref="F:iText.Kernel.Pdf.PdfName.BaseFont"/>
+            ;
+            </description></item>
+            <item><description>
+            <see cref="T:iText.Kernel.Pdf.PdfName"/>
+            value associated with key
+            <see cref="F:iText.Kernel.Pdf.PdfName.FontName"/>
+            included into
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            associated with
+            <see cref="F:iText.Kernel.Pdf.PdfName.FontDescriptor"/>
+            ;
+            </description></item>
+            <item><description>performs modification mentioned above for each
+            <see cref="T:iText.Kernel.Pdf.PdfDictionary"/>
+            included into array
+            associated with
+            <see cref="F:iText.Kernel.Pdf.PdfName.DescendantFonts"/>.
+            </description></item>
+            </list>
+            </remarks>
+            <param name="pdfDictionary">
+            
+            <inheritDoc/>
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer">
+            <summary>Makes a subset of the font glyphs used in document.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Performs an optimization of the document.</summary>
+            <remarks>
+            Performs an optimization of the document. The method is not designed to be invoked directly.
+            For a correct optimization process use methods of
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizer"/>
+            class.
+            </remarks>
+            <param name="document">
+            is the PDF document to optimize. Invocation of the method can change the
+            state of the object
+            </param>
+            <param name="session">
+            is an auxiliary object used to support share data between stages of
+            optimization process
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontsubsetting.TrueTypeSubsetter">
+            <summary>Class that can subset tru type fonts.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.TrueTypeSubsetter.Subset(iText.Kernel.Font.PdfTrueTypeFont,System.Collections.Generic.ICollection{iText.IO.Font.Otf.Glyph})">
+            <summary>Subset true type font with provided set of glyphs.</summary>
+            <param name="font">true type font</param>
+            <param name="glyphs">set of glyphs to create subset</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontsubsetting.Type0Subsetter">
+            <summary>Class that can subset type0 fonts.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.Type0Subsetter.Subset(iText.Kernel.Font.PdfType0Font,System.Collections.Generic.ICollection{iText.IO.Font.Otf.Glyph})">
+            <summary>Subset type0 font with provided set of glyphs.</summary>
+            <param name="font">type0 font</param>
+            <param name="glyphs">set of glyphs to create subset</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder">
+            <summary>This class is used to find set of glyphs used in document for each font.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.#ctor">
+            <summary>No param constructor.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FindUsedGlyphsInFonts(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Process content streams to find glyphs used in document.</summary>
+            <param name="document">document to find used glyphs</param>
+            <param name="session">for store objects used during glyphs finding</param>
+            <returns>a map where the key is the font and the value is a set of used glyphs</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.ProcessContentStream(iText.Kernel.Pdf.PdfStream,iText.Kernel.Pdf.PdfResources,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>This methods used to recursively process all content stream in document.</summary>
+            <param name="stream">current stream</param>
+            <param name="externalResources">current resources, if null get resources from session stack</param>
+            <param name="session">to get stacked resources</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.UsedGlyphsListener.EventOccurred(iText.Kernel.Pdf.Canvas.Parser.Data.IEventData,iText.Kernel.Pdf.Canvas.Parser.EventType)">
+            <summary>
+            Process event data and add used glyphs to
+            <see cref="F:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.UsedGlyphsListener.usedGlyphsInFonts"/>
+            map.
+            </summary>
+            <param name="data">combines the data required for processing corresponding event type</param>
+            <param name="type">event type</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.UsedGlyphsListener.GetUsedGlyphsMap">
+            <summary>Gets a map where the key is the font and the value is a set of used glyphs.</summary>
+            <returns>map with used glyphs in fonts</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FontGlyphs">
+            <summary>Stores set of font used glyphs and also auxilary data about extracted glyphs.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FontGlyphs.#ctor">
+            <summary>Creates new instance.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FontGlyphs.GetGlyphs">
+            <summary>Gets font glyphs that were used in the PDF document.</summary>
+            <returns>a set of used font glyphs</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FontGlyphs.IsAnyGlyphsDecodingFailed">
+            <summary>Gets a flag marking that at least one encountered glyph for the font was not recognized and decoded.
+                </summary>
+            <returns>false if all glyphs for the font were successfully decoded, true otherwise</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Fontsubsetting.UsedGlyphsFinder.FontGlyphs.UpdateGlyphsDecodingFailedStatus(System.Boolean)">
+            <summary>Updates glyphs failed decoding status with the latest chunk decoding value.</summary>
+            <param name="allGlyphsDecoded">true if current glyphs chunk were successfully decoded, false otherwise</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer">
+            <summary>Looks for image streams and performs theirs optimization.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.#ctor">
+            <summary>Creates an empty image quality optimizer.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.#ctor(System.Collections.Generic.IDictionary{iText.IO.Image.ImageType,iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor})">
+            <summary>Creates a new image quality optimizer with custom configuration of image processors.</summary>
+            <remarks>
+            Creates a new image quality optimizer with custom configuration of image processors. Note
+            that type of the image is identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processors">is a map where image types are associated with processors for them</param>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetJpegProcessor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JPEG"/>
+            images.
+            </summary>
+            <remarks>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JPEG"/>
+            images. Note that type of the image is
+            identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processor">is an image processor to set</param>
+            <returns>this instance</returns>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetJpeg2000Processor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JPEG2000"/>
+            images.
+            </summary>
+            <remarks>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JPEG2000"/>
+            images. Note that type of the image is
+            identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processor">is an image processor to set</param>
+            <returns>this instance</returns>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetJBig2Processor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JBIG2"/>
+            images.
+            </summary>
+            <remarks>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.JBIG2"/>
+            images. Note that type of the image is
+            identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processor">is an image processor to set</param>
+            <returns>this instance</returns>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetTiffProcessor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.TIFF"/>
+            images.
+            </summary>
+            <remarks>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.TIFF"/>
+            images. Note that type of the image is
+            identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processor">is an image processor to set</param>
+            <returns>this instance</returns>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetPngProcessor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.PNG"/>
+            images.
+            </summary>
+            <remarks>
+            Sets a processor for
+            <see cref="F:iText.IO.Image.ImageType.PNG"/>
+            images. Note that type of the image is
+            identifying based on
+            <see cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+            call.
+            </remarks>
+            <param name="processor">is an image processor to set</param>
+            <returns>this instance</returns>
+            <seealso cref="M:iText.Kernel.Pdf.Xobject.PdfImageXObject.IdentifyImageType"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.SetPredicate(iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate)">
+            <summary>Sets a search predicate.</summary>
+            <remarks>
+            Sets a search predicate. Allows to provide custom implementation of
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate"/>
+            with overridden method
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate.CustomCondition(iText.Kernel.Pdf.PdfObject)"/>
+            to skip some types of images
+            during optimization process.
+            </remarks>
+            <param name="predicate">is a predicate to set</param>
+            <returns>this instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.GetPredicate">
+            <summary>Gets current search predicate.</summary>
+            <remarks>Gets current search predicate. If it was not set return default implementation.</remarks>
+            <returns>search predicate.</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.GetImageProcessors">
+            <summary>Gets a copy of current configuration of the image processor.</summary>
+            <returns>
+            a map where
+            <see cref="T:iText.IO.Image.ImageType"/>
+            keys are associated with actual
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer.OptimizePdf(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            The method searches across all the document and for each found
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            performs an optimization according to its type.
+            </summary>
+            <param name="document">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCmykToRgbConverter">
+            <summary>Class is used to change the color scheme of the bitmap image from CMYK to RGB.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCmykToRgbConverter.#ctor">
+            <summary>Creates an instance of the color scheme converter.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCmykToRgbConverter.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            If provided image is a bitmap image with DeviceCMYK color scheme
+            then converts it to the image with DeviceRGB color scheme.
+            </summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCompressor">
+            <summary>Class is used to optimize bitmap images.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCompressor.#ctor(System.Double,System.Double)">
+            <summary>Creates a new instance of processor.</summary>
+            <remarks>
+            Creates a new instance of processor. By default
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.AverageCalculationAlgorithm"/>
+            is used
+            for scaling.
+            </remarks>
+            <param name="scaling">is a scaling coefficient, must be in range [0., 1.]</param>
+            <param name="compression">is a compression coefficient, must be in range [0., 1.]</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCompressor.#ctor(System.Double,iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.IScalingAlgorithm,System.Double)">
+            <summary>Creates a new instance of processor.</summary>
+            <param name="scaling">is a scaling coefficient, must be in range [0., 1.]</param>
+            <param name="algorithm">is a scaling algorithm</param>
+            <param name="compression">is a compression coefficient, must be in range [0., 1.]</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapCompressor.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Optimizes a bitmap image: scales it, changes color scheme from CMYK to RGB if necessary
+            and then compressed it as JPEG.
+            </summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapDeindexer">
+            <summary>Class is used to replace Indexed colorspace with appropriate Device colorspace.</summary>
+            <remarks>
+            Class is used to replace Indexed colorspace with appropriate Device colorspace. It should not
+            optimize pdf document but can be used as the first step of optimization process.
+            </remarks>
+            <seealso cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapIndexer"/>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapDeindexer.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            If bitmap image is in Indexed color space the Deindexer will create a representation of the
+            same in based color space.
+            </summary>
+            <remarks>
+            If bitmap image is in Indexed color space the Deindexer will create a representation of the
+            same in based color space. Otherwise will return the original image.
+            </remarks>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapIndexer">
+            <summary>Class is used to make the color space of the image indexed if possible.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapIndexer.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Calculates the number of colors used for the image and if it is not more than 256 builds an
+            index for the image and change the color space to Indexed.
+            </summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapIndexer.BuildStorageForImage(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels)">
+            <summary>Builds a storage for colors used for bitmap image creation.</summary>
+            <remarks>
+            Builds a storage for colors used for bitmap image creation. It is limited by 257 colors. If
+            the threshold is reached stops the calculation as image cannot be indexed.
+            </remarks>
+            <param name="pixels">is an image</param>
+            <returns>storage of 257 first or all colors</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapScalingProcessor">
+            <summary>Class is used to scale bitmap images.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapScalingProcessor.#ctor(System.Double)">
+            <summary>Creates an instance of bitmap image processor.</summary>
+            <remarks>
+            Creates an instance of bitmap image processor.
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.AverageCalculationAlgorithm"/>
+            will be used as
+            scaling algorithm.
+            </remarks>
+            <param name="scaling">is a scaling coefficient</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapScalingProcessor.#ctor(System.Double,iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.IScalingAlgorithm)">
+            <summary>Creates an instance of bitmap image processor.</summary>
+            <param name="scaling">is a scaling coefficient</param>
+            <param name="algorithm">is a scaling algorithm</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.BitmapScalingProcessor.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Scales a bitmap image presented as
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>.
+            </summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.CombinedImageProcessor">
+            <summary>
+            Allow to create complex
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor"/>
+            combined of several image processors called one
+            by one.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.CombinedImageProcessor.#ctor">
+            <summary>Creates a new instance of the combined image processor.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.CombinedImageProcessor.AddProcessor(iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor)">
+            <summary>Appends one more processor to the chain.</summary>
+            <param name="processor">is a new processor to add.</param>
+            <returns>this instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.CombinedImageProcessor.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Processes image by set processors one by one.</summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor">
+            <summary>
+            Interface for processing of images stored as
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            with a specified
+            <see cref="T:iText.IO.Image.ImageType"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.IImageProcessor.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>Processes an image.</summary>
+            <param name="objectToProcess">
+            is a
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            representing the image
+            </param>
+            <param name="session">
+            is an auxiliary object used to support share data between stages of
+            optimization process
+            </param>
+            <returns>processed image if processing can be performed and the same instance otherwise</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.JpegCompressor">
+            <summary>Class is used to compress images as JPEG.</summary>
+            <remarks>
+            Class is used to compress images as JPEG. If the
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            has <c>/Mask</c>
+            entry as
+            <see cref="T:iText.Kernel.Pdf.PdfArray"/>
+            then it will be converted into mask as a stream.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.JpegCompressor.#ctor(System.Double)">
+            <summary>Creates an instance of JPEG image processor.</summary>
+            <param name="compressionLevel">is a compression coefficient. The value should be in range [0.0, 1.0]</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.JpegCompressor.ProcessImage(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Pdfoptimizer.OptimizationSession)">
+            <summary>
+            Compresses a JPEG image presented as
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            with the configured compression
+            level.
+            </summary>
+            <param name="objectToProcess">
+            
+            <inheritDoc/>
+            </param>
+            <param name="session">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.AverageCalculationAlgorithm">
+            <summary>
+            Scaling algorithm which calculates average color of all pixels of the original image covered by
+            the pixel of resulting image.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.AverageCalculationAlgorithm.Scale(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,System.Double)">
+            <summary>
+            Scales a bitmap image by calculating average color of all pixels of the original image
+            covered by the pixel of resulting image.
+            </summary>
+            <param name="original">
+            
+            <inheritDoc/>
+            </param>
+            <param name="scaling">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.DroppingAlgorithm">
+            <summary>Scaling algorithm which drops pixels.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.DroppingAlgorithm.Scale(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,System.Double)">
+            <summary>Scales a bitmap image by copying the nearest neighbor pixel of the original.</summary>
+            <remarks>
+            Scales a bitmap image by copying the nearest neighbor pixel of the original. As a result
+            some pixels just dropped.
+            </remarks>
+            <param name="original">
+            
+            <inheritDoc/>
+            </param>
+            <param name="scaling">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.IScalingAlgorithm">
+            <summary>Defines an algorithm of bitmap image scaling.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Scaling.IScalingAlgorithm.Scale(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,System.Double)">
+            <summary>Scales a bitmap image.</summary>
+            <param name="original">
+            is an image to scale presented as
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels"/>
+            </param>
+            <param name="scaling">is a scaling coefficient. Should be in (0, 1] range</param>
+            <returns>scaled image</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ArrayStorage">
+            <summary>
+            Wrapper for
+            <see cref="!:System.Collections.Hashtable&lt;K, V&gt;"/>
+            with
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray"/>
+            as keys and
+            <see cref="!:int?"/>
+            as
+            values.
+            </summary>
+            <remarks>
+            Wrapper for
+            <see cref="!:System.Collections.Hashtable&lt;K, V&gt;"/>
+            with
+            <see cref="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray"/>
+            as keys and
+            <see cref="!:int?"/>
+            as
+            values. Implemented for purposes of storing arrays with their unique integer codes.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ArrayStorage.Add(System.Int64[])">
+            <summary>Add a new array to the storage.</summary>
+            <remarks>
+            Add a new array to the storage. If it was already presented in the storage then its internal
+            state will not be change. Otherwise it will be associated with a new index which is the
+            sequence number of the added array.
+            </remarks>
+            <param name="array">is the array to add</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ArrayStorage.Get(System.Int64[])">
+            <summary>Gets the value associated with the provided array.</summary>
+            <remarks>
+            Gets the value associated with the provided array. It is equal to the sequence number of
+            the array which can be used as unique identifier of the array.
+            </remarks>
+            <param name="array">the array to obtain its sequence number</param>
+            <returns>sequence number of the array</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ArrayStorage.Size">
+            <summary>Gets size of the storage.</summary>
+            <returns>amount of unique stored arrays</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ArrayStorage.GetAll">
+            <summary>Gets all stored arrays with its identifiers.</summary>
+            <returns>set of entries of long arrays associated with their sequence number</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray">
+            <summary>
+            It is a wrapper for long array for using as keys in
+            <see cref="!:System.Collections.Hashtable&lt;K, V&gt;"/>
+            and as values in
+            <see cref="!:Java.Util.HashSet&lt;E&gt;"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray.#ctor(System.Int64[])">
+            <summary>Wraps the provided array.</summary>
+            <remarks>
+            Wraps the provided array. Copy of array is stored to keep the class immutable. Will store
+            empty array if <c>array</c> is null.
+            </remarks>
+            <param name="array">is the array to wrap</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray.GetArray">
+            <summary>Getter for a stored array.</summary>
+            <returns>the copy of the stored array</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray.Equals(System.Object)">
+            <summary><inheritDoc/></summary>
+            <param name="o">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.HashableArray.GetHashCode">
+            <summary><inheritDoc/></summary>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ImageProcessingUtil">
+            <summary>
+            Helper class which encapsulates compression jpeg logic.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Imagequality.Processors.Utils.ImageProcessingUtil.CompressJpeg(System.Byte[],System.Double)">
+            <summary>Applies JPEG compression to the provided byte array with the provided compression level.</summary>
+            <remarks>
+            Applies JPEG compression to the provided byte array with the provided compression level.
+            Code is based on the following documentation: 
+            https://docs.microsoft.com/en-us/dotnet/desktop/winforms/advanced/how-to-set-jpeg-compression-level?view=netframeworkdesktop-4.8
+            </remarks>
+            <param name="originalJpeg">
+            is the array of bytes representing the original JPEG image
+            </param>
+            <param name="compressionLevel">
+            is a compression level
+            </param>
+            <returns>new array of bytes representing compressed JPEG image</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels">
+            <summary>
+            Class allows to process pixels of the bitmap image stored as byte array according to PDF
+            specification.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Creates a representation of empty image.</summary>
+            <param name="width">is a width of the image</param>
+            <param name="height">is a height of the image</param>
+            <param name="bitsPerComponent">is an amount of bits representing each color component of a pixel</param>
+            <param name="numberOfComponents">is a number of components representing a pixel</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.#ctor(iText.Kernel.Pdf.Xobject.PdfImageXObject)">
+            <summary>
+            Creates a representation of an image presented as
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>.
+            </summary>
+            <param name="image">
+            is an image as
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[])">
+            <summary>Creates a representation of an image presented as bytes array.</summary>
+            <param name="width">is a width of the image</param>
+            <param name="height">is a height of the image</param>
+            <param name="bitsPerComponent">is an amount of bits representing each color component of a pixel</param>
+            <param name="numberOfComponents">is a number of components representing a pixel</param>
+            <param name="data">is an image data</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetPixel(System.Int32,System.Int32)">
+            <summary>Gets pixel of the image.</summary>
+            <param name="x">is an x-coordinate of a pixel to update</param>
+            <param name="y">is a y-coordinate of a pixel to update</param>
+            <returns>an array representing pixel color according to used color space</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetPixelAsLongs(System.Int32,System.Int32)">
+            <summary>Gets pixel of the image presented as long values.</summary>
+            <param name="x">is an x-coordinate of a pixel to update</param>
+            <param name="y">is a y-coordinate of a pixel to update</param>
+            <returns>an array representing pixel color according to used color space</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.SetPixel(System.Int32,System.Int32,System.Double[])">
+            <summary>Updates a pixel of the image.</summary>
+            <param name="x">is an x-coordinate of a pixel to update</param>
+            <param name="y">is a y-coordinate of a pixel to update</param>
+            <param name="value">
+            is a pixel color. Pixel should be presented as double array according to used
+            color space. Each value should be in range [0., 1.] (otherwise negative value
+            will be replaced with 0. and large numbers are replaced with 1.)
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.SetPixel(System.Int32,System.Int32,System.Int64[])">
+            <summary>Updates a pixel of the image.</summary>
+            <param name="x">is an x-coordinate of a pixel to update</param>
+            <param name="y">is a y-coordinate of a pixel to update</param>
+            <param name="value">
+            is a pixel color. Pixel should be presented as long array according to used
+            color space. Each value should be in range
+            [0, <c>2 ^ bitsPerComponent</c> - 1] (otherwise negative value
+            will be replaced with 0. and large numbers are replaced with maximum allowed
+            value.)
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetWidth">
+            <summary>Getter for a width of the image.</summary>
+            <returns>width of the image</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetHeight">
+            <summary>Getter for a height of the image.</summary>
+            <returns>height of the image</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetBitsPerComponent">
+            <summary>Getter for bits per component parameter of the image.</summary>
+            <returns>bits per component parameter of the image</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetNumberOfComponents">
+            <summary>Getter for number of components parameter of the image.</summary>
+            <returns>number of components of the image</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetData">
+            <summary>Getter for byte representation of the image.</summary>
+            <returns>image data as byte array</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetMaxComponentValue">
+            <summary>Gets the maximum value for the component.</summary>
+            <returns>maximum value of the component</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.CsConverterUtil">
+            <summary>Helper class which encapsulates util method for color space converting.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.CsConverterUtil.ConvertBitmapImage(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter)">
+            <summary>
+            Converts passed bitmap image bytes from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>.
+            </summary>
+            <remarks>
+            Converts passed bitmap image bytes from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            . It is expected that source color space
+            of the converter matches the color space of the image. Otherwise, the result of the method
+            invocation may be unpredictable.
+            </remarks>
+            <param name="imagePixels">the bitmap image pixels to be converted</param>
+            <param name="converter">
+            the converter for the image. It is expected that its source color space
+            which can be identified via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceColorspace"/>
+            matches the color space of the image (at least it has the same number of
+            components as image does according to
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetNumberOfComponents"/>
+            method.
+            </param>
+            <returns>image pixels converted according to converter</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.CsConverterUtil.ConvertBitmapImage(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder)">
+            <summary>
+            Converts passed bitmap image bytes from one color to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <param name="imagePixels">the bitmap image pixels to be converted</param>
+            <param name="colorDecoder">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            </param>
+            <returns>image pixels converted according colorDecoder</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.CsConverterUtil.ConvertBitmapImage(iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels,iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter,iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder)">
+            <summary>
+            Converts passed bitmap image bytes from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            and
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <remarks>
+            Converts passed bitmap image bytes from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            and
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            . It is expected that source color space
+            of the converter matches the color space of the image. Otherwise, the result of the method
+            invocation may be unpredictable.
+            </remarks>
+            <param name="imagePixels">the bitmap image pixels to be converted</param>
+            <param name="converter">
+            the converter for the image. It is expected that its source color space
+            which can be identified via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceColorspace"/>
+            matches the color space of the image (at least it has the same number of
+            components as image does according to
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels.GetNumberOfComponents"/>
+            method.
+            </param>
+            <param name="colorDecoder">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            </param>
+            <returns>image pixels converted according to converter and colorDecoder</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.CsConverterUtil.ExtractColorTableOfIndexedImage(iText.Kernel.Pdf.Colorspace.PdfSpecialCs.Indexed)">
+            <summary>Extracts color table from indexed color space instance.</summary>
+            <param name="indexedCs">is an indexed color space instance</param>
+            <returns>
+            color table as
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.BitmapImagePixels"/>
+            or null if
+            indexedCs is not valid indexed color space instance
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Decoders.BlankColorDecoder">
+            <summary>
+            Helper subclass of
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            which does nothing with the color.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.BlankColorDecoder.#ctor">
+            <summary>Creates an instance of blank color decoder.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.BlankColorDecoder.Decode(System.Double[])">
+            <summary>Returns the provided color as is.</summary>
+            <param name="color">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.BlankColorDecoder.DecodeComponent(System.Double,System.Int32)">
+            <summary>Returns the provided color component as is.</summary>
+            <param name="colorComponent">
+            
+            <inheritDoc/>
+            </param>
+            <param name="componentIndex">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Decoders.CmykColorDecoder">
+            <summary>Class for converting cmyk color in an image according to decode array in image stream.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.CmykColorDecoder.#ctor(System.Double[])">
+            <summary>Creates an instance of cmyk color decoder.</summary>
+            <param name="decodeArray">decode array in image stream</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder">
+            <summary>Class for converting color in an image according to decode array in image stream.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder.#ctor(System.Double[],System.Double)">
+            <summary>Creates an instance of color decoder.</summary>
+            <param name="decodeArray">decode array in image stream</param>
+            <param name="maxComponentValue">maximum value for the color component, 1 in most cases</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder.Decode(System.Double[])">
+            <summary>Converts color according to decode array.</summary>
+            <param name="color">an array representing the color</param>
+            <returns>decoded array representing the color</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder.DecodeComponent(System.Double,System.Int32)">
+            <summary>Converts one color component according to decode array.</summary>
+            <param name="colorComponent">a value for color component</param>
+            <param name="componentIndex">an index of the color component being decoded</param>
+            <returns>decoded value for color component</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Decoders.IndexedColorDecoder">
+            <summary>Class for converting indexed color in an image according to decode array in image stream.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.IndexedColorDecoder.#ctor(System.Double[],System.Int32)">
+            <summary>Creates an instance of indexed color decoder.</summary>
+            <param name="decodeArray">decode array in image stream</param>
+            <param name="bitsPerComponent">Amount of bits representing indexed color</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.IndexedColorDecoder.Decode(System.Double[])">
+            <summary><inheritDoc/></summary>
+            <param name="color">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.IndexedColorDecoder.DecodeComponent(System.Double,System.Int32)">
+            <summary><inheritDoc/></summary>
+            <param name="colorComponent">
+            
+            <inheritDoc/>
+            </param>
+            <param name="componentIndex">
+            
+            <inheritDoc/>
+            </param>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Decoders.RgbColorDecoder">
+            <summary>Class for converting rgb color in an image according to decode array in image stream.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Decoders.RgbColorDecoder.#ctor(System.Double[])">
+            <summary>Creates an instance of rgb color decoder.</summary>
+            <param name="decodeArray">decode array in image stream</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.FontSubsetNameDetector">
+            <summary>Checks if font name follows the rule of naming defined for font subsets.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.FontSubsetNameDetector.IsFontSubsetName(System.String)">
+            <summary>Checks if font name follows the rule of naming defined for font subsets.</summary>
+            <param name="fontName">the font name to check</param>
+            <returns>true if font name adheres to font subset naming rule, false otherwise</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.MaskColors">
+            <summary>Wrapper class for an array presented as /Mask entry of the image.</summary>
+            <remarks>
+            Wrapper class for an array presented as /Mask entry of the image. It is implemented as immutable
+            class.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.Create(iText.Kernel.Pdf.PdfArray)">
+            <summary>Creates an instance of MaskArray based on /Mask entry of the image dictionary.</summary>
+            <param name="array">is a Mask array, may be null</param>
+            <returns>a MaskArray wrapper or null if <c>array</c> is null</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetConvertedColorMask(System.Int64,iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter)">
+            <summary>
+            Converts maskArray from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>.
+            </summary>
+            <remarks>
+            Converts maskArray from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            . It is expected that source color space of the converter
+            matches the color space of the mask. Otherwise exception will be thrown.
+            </remarks>
+            <param name="maximumComponentValue">
+            is a maximum value of each component. Unlike double representing
+            of the color components, long components depend on the color
+            depth and may represent different colors when used with
+            different bits per component. Maximum component value notifies
+            the maximum possible value for each component which usually is
+            calculated as <c>2 ^ (bitsPerComponent) - 1</c>. However
+            it is possible to use the method in another setting with any
+            other maximum component value. It is expected that every value
+            of the mask represented by this instance is not negative and
+            does not exceed the <c>maximumComponentValue</c>
+            </param>
+            <param name="converter">
+            is a color converter. It is expected that its source color space
+            which can be identified via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceColorspace"/>
+            matches the color space of the mask (at least it has the same number of
+            components as
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMin"/>
+            and
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMax"/>
+            arrays). Otherwise, exception will be thrown
+            </param>
+            <returns>
+            new instance of
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.MaskColors"/>
+            representing the same mask in new color space. For
+            converted arrays it is expected that each element of one of them is not greater then the
+            corresponding element of the second one.
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetConvertedColorMask(System.Int64,iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter,iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder)">
+            <summary>
+            Converts maskArray from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            and
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>.
+            </summary>
+            <remarks>
+            Converts maskArray from one color space to another according to provided
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter"/>
+            and
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            . It is expected that source color space of the converter
+            matches the color space of the mask. Otherwise, exception will be thrown.
+            </remarks>
+            <param name="maximumComponentValue">
+            is a maximum value of each component. Unlike double representing
+            of the color components, long components depend on the color
+            depth and may represent different colors when used with
+            different bits per component. Maximum component value notifies
+            the maximum possible value for each component which usually is
+            calculated as <c>2 ^ (bitsPerComponent) - 1</c>. However
+            it is possible to use the method in another setting with any
+            other maximum component value. It is expected that every value
+            of the mask represented by this instance is not negative and
+            does not exceed the <c>maximumComponentValue</c>
+            </param>
+            <param name="converter">
+            is a color converter. It is expected that its source color space
+            which can be identified via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceColorspace"/>
+            matches the color space of the mask (at least it has the same number of
+            components as
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMin"/>
+            and
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMax"/>
+            arrays). Otherwise exception will be thrown
+            </param>
+            <param name="colorDecoder">
+            
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.Decoders.ColorDecoder"/>
+            </param>
+            <returns>
+            new instance of
+            <see cref="T:iText.Pdfoptimizer.Handlers.Util.MaskColors"/>
+            representing the same mask in new color space. For
+            converted arrays it is expected that each element of one of them is not greater then the
+            corresponding element of the second one.
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMin">
+            <summary>
+            Gets minimum color to mask out which is defined by the elements at even positions of the
+            original array (considering the array as 0-indexed).
+            </summary>
+            <returns>minimum color of mask out</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.GetMax">
+            <summary>
+            Gets maximum color to mask out which is defined by the elements at odd positions of the
+            original array (considering the array as 0-indexed).
+            </summary>
+            <returns>minimum color of mask out</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.IsColorMasked(System.Int64[])">
+            <summary>
+            Checks if provided color is masked by the current mask because all its components
+            are in the range defined by the min and max arrays of the mask.
+            </summary>
+            <param name="color">is a color to check</param>
+            <returns>
+            <c>true</c> if check is valid (provided color has the expected number of
+            components) and all color should be masked. Otherwise returns <c>false</c>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.ToPdfArray">
+            <summary>
+            Creates a mask
+            <see cref="T:iText.Kernel.Pdf.PdfArray"/>
+            from provided object.
+            </summary>
+            <returns>a mask array</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.MaskColors.CompareArrays(System.Int64[],System.Int64[])">
+            <summary>Internal method.</summary>
+            <remarks>
+            Internal method. It expects that both arrays have the same length and each element of one
+            of them is not greater then the corresponding element of the second one. For that case will
+            return:
+            <list type="bullet">
+            <item><description>negative number if the first array has at least one element which is less then
+            element of the second array with the same index;
+            </description></item>
+            <item><description>zero if arrays are equal;
+            </description></item>
+            <item><description>positive number if the first array has at least one element which is greater then
+            element of the second array with the same index
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate">
+            <summary>
+            Checks if current
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            is a
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate.Test(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Checks that current object is a
+            <see cref="T:iText.Kernel.Pdf.PdfStream"/>
+            and has key
+            <see cref="F:iText.Kernel.Pdf.PdfName.Subtype"/>
+            associated with value
+            <see cref="F:iText.Kernel.Pdf.PdfName.Image"/>.
+            </summary>
+            <remarks>
+            Checks that current object is a
+            <see cref="T:iText.Kernel.Pdf.PdfStream"/>
+            and has key
+            <see cref="F:iText.Kernel.Pdf.PdfName.Subtype"/>
+            associated with value
+            <see cref="F:iText.Kernel.Pdf.PdfName.Image"/>
+            . If optional key
+            <see cref="F:iText.Kernel.Pdf.PdfName.Type"/>
+            is
+            presented it should be associated with the value
+            <see cref="F:iText.Kernel.Pdf.PdfName.XObject"/>.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.PdfImageXObjectPredicate.CustomCondition(iText.Kernel.Pdf.PdfObject)">
+            <summary>When overridden allows to provide custom condition on images which match the predicate.</summary>
+            <param name="object">is an image dictionary</param>
+            <returns>true for every object</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Pixel.CmykToRgbColorConverter">
+            <summary>Class representing logic for converting cmyk color to rgb color.</summary>
+            <remarks>
+            Class representing logic for converting cmyk color to rgb color. It implements singleton pattern
+            therefore the instance can be accessed via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.CmykToRgbColorConverter.GetInstance"/>
+            call.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.CmykToRgbColorConverter.GetInstance">
+            <summary>Returns an instance of cmyk to rgb converter.</summary>
+            <returns>the instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.CmykToRgbColorConverter.ConvertColor(System.Double[])">
+            <summary>
+            Performs a conversion of the provided array representing cmyk color components to the array
+            representing rgb color component.
+            </summary>
+            <remarks>
+            Performs a conversion of the provided array representing cmyk color components to the array
+            representing rgb color component. It is expected that the array passed as an argument
+            contains four components and each is a double value from the range [0., 1.]. The values are
+            considered as cyan, magenta, yellow and black components respectively. The returned value
+            should be an array with length 3 where each component is a double value from the range
+            [0., 1.]. The values should be considered as intensity of red, green and blue color
+            components respectively.
+            <para />
+            Note that no validation of the values is done for the better performance. When invalid
+            argument is passed method may return invalid array of even throw runtime exception.
+            </remarks>
+            <param name="cmykComponents">
+            is an array representing cyan, magenta, yellow and black as double
+            values from the range [0., 1.]. Validation is not performed
+            </param>
+            <returns>
+            an array representing red, green and blue components as double values from the
+            range [0., 1.]. If the passed argument is not in expected format then returned value may
+            be unpredictable.
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter">
+            <summary>
+            The interface for converting a single color according to another one or to another representation
+            of the same one.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.ConvertColor(System.Double[])">
+            <summary>Converts provided color.</summary>
+            <param name="original">is an array representing color components</param>
+            <returns>a new array representation of the color</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceColorspace">
+            <summary>Returns original color space of the color.</summary>
+            <returns>original color space</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetSourceNumberOfComponents">
+            <summary>Return number of components representing the original color space.</summary>
+            <returns>number of components of the original color space</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetTargetColorspace">
+            <summary>Returns target color space of the color.</summary>
+            <returns>target color space</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.ColorConverter.GetTargetNumberOfComponents">
+            <summary>Return number of components representing the target color space.</summary>
+            <returns>number of components of the target color space</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Handlers.Util.Pixel.RgbToCmykColorConverter">
+            <summary>Class representing logic for converting rgb color to cmyk color.</summary>
+            <remarks>
+            Class representing logic for converting rgb color to cmyk color. It implements singleton pattern
+            therefore the instance can be accessed via
+            <see cref="M:iText.Pdfoptimizer.Handlers.Util.Pixel.RgbToCmykColorConverter.GetInstance"/>
+            call.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.RgbToCmykColorConverter.GetInstance">
+            <summary>Returns an instance of rgb to cmyk converter.</summary>
+            <returns>the instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Handlers.Util.Pixel.RgbToCmykColorConverter.ConvertColor(System.Double[])">
+            <summary>
+            Performs a conversion of the provided array representing rgb color components to the array
+            representing cmyk color component.
+            </summary>
+            <remarks>
+            Performs a conversion of the provided array representing rgb color components to the array
+            representing cmyk color component. It is expected that the array passed as an argument
+            contains three components and each is a double value from the range [0., 1.]. The values are
+            considered as intensity of red, green and blue color components respectively. The returned
+            value should be an array with length 4 where each component is a double value from the range
+            [0., 1.]. The values should be considered as representations of cyan, magenta, yellow and
+            black components respectively.
+            <para />
+            Note that no validation of the values is done for the better performance. When invalid
+            argument is passed method may return invalid array of even throw runtime exception.
+            </remarks>
+            <param name="rgbComponents">
+            is an array representing red, green and blue color components as double
+            values from the range [0., 1.]. Validation is not performed
+            </param>
+            <returns>
+            an array representing cyan, magenta, yellow and black components as double values
+            from the range [0., 1.]. If the passed argument is not in expected format then returned
+            value may be unpredictable.
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Logs.PdfOptimizerLogMessageConstants">
+            <summary>Class that bundles all the message templates as constants.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.OptimizationSession">
+            <summary>
+            Class is used to handle auxiliary activities during the optimization processing (i. e.
+            generating optimization report).
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.OptimizationSession.#ctor(iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder)">
+            <summary>
+            Creates an instance of OptimizationSession with provided
+            <see cref="T:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder"/>.
+            </summary>
+            <param name="reportBuilder">is a report builder</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.OptimizationSession.RegisterEvent(iText.Pdfoptimizer.Report.Message.SeverityLevel,System.String,System.Object[])">
+            <summary>Registers an event of optimization process.</summary>
+            <param name="level">is a severity level of the event</param>
+            <param name="message">is a text message of the event</param>
+            <param name="args">are arguments of the message if it is parametrized</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.OptimizationSession.GetStoredValue(System.String)">
+            <summary>Retrieves stored value associated with the provided key.</summary>
+            <param name="key">is a key to access the value</param>
+            <returns>the value associated with the key</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.OptimizationSession.StoreValue(System.String,System.Object)">
+            <summary>Puts a value and a key associated with it into internal storage.</summary>
+            <param name="key">is a key to access the value</param>
+            <param name="value">is a value associated with the key</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.OptimizationSession.GetLocationStack">
+            <summary>Returns current location stack.</summary>
+            <returns>the location stack</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.PdfOptimizer">
+            <summary>Entry point for Pdf Optimization process.</summary>
+            <remarks>
+            Entry point for Pdf Optimization process. Each Pdf Optimizer can be configured with required
+            set of
+            <see cref="T:iText.Pdfoptimizer.AbstractOptimizationHandler"/>
+            instances. Optimizer requires fully populated instance
+            of
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            to perform valid optimization. Processing of raw PdfDocument without all
+            the calculations done may lead to unexpected and incorrect behaviour. That is why it is only
+            allowed to pass the source of Pdf file instead of PdfDocument instance itself.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.#ctor">
+            <summary>Creates a new instance of PdfOptimizer, the main entry point of the optimization process.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.#ctor(iText.Pdfoptimizer.PdfOptimizerProfile,System.Collections.Generic.IList{iText.Pdfoptimizer.AbstractOptimizationHandler})">
+            <summary>Creates a new instance of PdfOptimizer with provided profile to set.</summary>
+            <remarks>
+            Creates a new instance of PdfOptimizer with provided profile to set. Is not expected to call
+            it manually.
+            </remarks>
+            <param name="profile">
+            is a
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizerProfile"/>
+            to set
+            </param>
+            <param name="handlers">is a list of handlers to add</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.AddOptimizationHandler(iText.Pdfoptimizer.AbstractOptimizationHandler)">
+            <summary>
+            Appends provided instance of
+            <see cref="T:iText.Pdfoptimizer.AbstractOptimizationHandler"/>
+            to the current
+            handler chain.
+            </summary>
+            <param name="handler">is an optimization handler</param>
+            <returns>this instance</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.SetReportBuilder(iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder)">
+            <summary>
+            Sets a custom instance of
+            <see cref="T:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder"/>.
+            </summary>
+            <param name="reportBuilder">is a report builder</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(System.IO.FileInfo,System.IO.FileInfo)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:System.IO.FileInfo"/>
+            and writes its optimized
+            version in the new file.
+            </summary>
+            <param name="inputFile">is a source of the PDF document</param>
+            <param name="outputFile">is a file where optimized document will be stored</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(System.IO.FileInfo,System.IO.Stream)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:System.IO.FileInfo"/>
+            and writes its optimized
+            version in the provided
+            <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="inputFile">is a source of the PDF document</param>
+            <param name="outputStream">is an output stream for optimized document</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(System.IO.Stream,System.IO.FileInfo)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:System.IO.Stream"/>
+            and writes its optimized
+            version in the new file.
+            </summary>
+            <param name="inputStream">is a source of the PDF document</param>
+            <param name="outputFile">is a file where optimized document will be stored</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(System.IO.Stream,System.IO.Stream)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:System.IO.Stream"/>
+            and writes its optimized
+            version in the provided
+            <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="inputStream">is a source of the PDF document</param>
+            <param name="outputStream">is an output stream for optimized document</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(iText.Kernel.Pdf.PdfReader,System.IO.FileInfo)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:iText.Kernel.Pdf.PdfReader"/>
+            and writes its optimized
+            version in the new file.
+            </summary>
+            <param name="reader">is a source of the PDF document</param>
+            <param name="outputFile">is a file where optimized document will be stored</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizer.Optimize(iText.Kernel.Pdf.PdfReader,System.IO.Stream)">
+            <summary>
+            Reads
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            from provided
+            <see cref="T:iText.Kernel.Pdf.PdfReader"/>
+            and writes its optimized
+            version in the provided
+            <see cref="T:System.IO.Stream"/>.
+            </summary>
+            <param name="reader">is a source of the PDF document</param>
+            <param name="outputStream">is an output stream for optimized document</param>
+            <returns>
+            optimization process report as
+            <see cref="T:iText.Pdfoptimizer.Report.OptimizationResult"/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.PdfOptimizerFactory">
+            <summary>
+            Class is responsible for creating new instances of
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizer"/>
+            in accordance with
+            predefined
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizerProfile"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.PdfOptimizerFactory.GetPdfOptimizerByProfile(iText.Pdfoptimizer.PdfOptimizerProfile)">
+            <summary>
+            Creates a new instance of PdfOptimizer with predefined
+            <see cref="T:iText.Pdfoptimizer.PdfOptimizerProfile"/>.
+            </summary>
+            <param name="profile">is a profile for a new instance of PdfOptimizer</param>
+            <returns>new instance of PdfOptimizer according to profile</returns>
+            <seealso cref="T:iText.Pdfoptimizer.PdfOptimizerProfile"/>
+        </member>
+        <member name="T:iText.Pdfoptimizer.PdfOptimizerProfile">
+            <summary>Enum is used to list available PdfOptimizer profiles.</summary>
+        </member>
+        <member name="F:iText.Pdfoptimizer.PdfOptimizerProfile.LOSSLESS_COMPRESSION">
+            <summary>Lossless compression profile.</summary>
+            <remarks>
+            Lossless compression profile. Includes:
+            <list type="bullet">
+            <item><description>stream compression optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.CompressionOptimizer"/>
+            );
+            </description></item>
+            <item><description>font duplication optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer"/>
+            );
+            </description></item>
+            <item><description>font subsetting optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer"/>
+            ).
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.PdfOptimizerProfile.LOW_COMPRESSION">
+            <summary>Low-level compression profile.</summary>
+            <remarks>
+            Low-level compression profile. Includes:
+            <list type="bullet">
+            <item><description>stream compression optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.CompressionOptimizer"/>
+            );
+            </description></item>
+            <item><description>font duplication optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer"/>
+            );
+            </description></item>
+            <item><description>font subsetting optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer"/>
+            );
+            </description></item>
+            <item><description>image quality optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer"/>
+            ): bitmap images are
+            scaled with coefficient 0.8; images in RGB and Grey color space, both scaled bitmaps and
+            originally jpeg images, are compressed by JPEG compression with coefficient 0.8.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.PdfOptimizerProfile.MID_COMPRESSION">
+            <summary>Mid-level compression profile.</summary>
+            <remarks>
+            Mid-level compression profile. Includes:
+            <list type="bullet">
+            <item><description>stream compression optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.CompressionOptimizer"/>
+            );
+            </description></item>
+            <item><description>font duplication optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer"/>
+            );
+            </description></item>
+            <item><description>font subsetting optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer"/>
+            );
+            </description></item>
+            <item><description>image quality optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer"/>
+            ): bitmap images are
+            scaled with coefficient 0.5; images in RGB and Grey color space, both scaled bitmaps and
+            originally jpeg images, are compressed by JPEG compression with coefficient 0.5.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.PdfOptimizerProfile.HIGH_COMPRESSION">
+            <summary>High-level compression profile.</summary>
+            <remarks>
+            High-level compression profile. Includes:
+            <list type="bullet">
+            <item><description>stream compression optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.CompressionOptimizer"/>
+            );
+            </description></item>
+            <item><description>font duplication optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontDuplicationOptimizer"/>
+            );
+            </description></item>
+            <item><description>font subsetting optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.FontSubsettingOptimizer"/>
+            );
+            </description></item>
+            <item><description>image quality optimization (done by
+            <see cref="T:iText.Pdfoptimizer.Handlers.ImageQualityOptimizer"/>
+            ): bitmap images are
+            scaled with coefficient 0.15; scaled bitmap images in CMYK color space are converted into
+            images in RGB color space; images in RGB and Grey color space, both scaled bitmaps and
+            originally jpeg images, are compressed by JPEG compression with coefficient 0.15.
+            </description></item>
+            </list>
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.PdfOptimizerProfile.CUSTOM">
+            <summary>Marker for a custom profile which is empty by default.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder">
+            <summary>The goal of the class is to generate an optimization report.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.#ctor(iText.Pdfoptimizer.Report.Message.SeverityLevel)">
+            <summary>Creates an instance of default ReportBuilder with provided minimal severity level.</summary>
+            <param name="minimalLevel">
+            is a minimal
+            <see cref="T:iText.Pdfoptimizer.Report.Message.SeverityLevel"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.Log(iText.Pdfoptimizer.Report.Message.SeverityLevel,System.DateTime,iText.Pdfoptimizer.Report.Location.LocationStack,System.String,System.Object[])">
+            <summary>Creates a message during PDF optimization process with provided severity level and message.</summary>
+            <remarks>
+            Creates a message during PDF optimization process with provided severity level and message.
+            Parametrized messages are also supported.
+            </remarks>
+            <param name="level">
+            is a
+            <see cref="T:iText.Pdfoptimizer.Report.Message.SeverityLevel"/>
+            of the message
+            </param>
+            <param name="time">is a time when the message was generated</param>
+            <param name="location">is a string representation of the origin of the message</param>
+            <param name="message">is a text of the message</param>
+            <param name="params">is an array of parameters of the message</param>
+            <returns>generated message if it was logged and null otherwise</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.Build">
+            <summary>
+            Builds a report based on messages logged with
+            <see cref="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.Log(iText.Pdfoptimizer.Report.Message.SeverityLevel,System.DateTime,iText.Pdfoptimizer.Report.Location.LocationStack,System.String,System.Object[])"/>.
+            </summary>
+            <returns>an optimization result object</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.GetMessages">
+            <summary>Returns list of logged messages.</summary>
+            <returns>the list of messages</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.ProcessMessage(iText.Pdfoptimizer.Report.Message.ReportMessage)">
+            <summary>Allows to provide additional logic of message processing.</summary>
+            <remarks>
+            Allows to provide additional logic of message processing. The method is called inside
+            <see cref="M:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder.Log(iText.Pdfoptimizer.Report.Message.SeverityLevel,System.DateTime,iText.Pdfoptimizer.Report.Location.LocationStack,System.String,System.Object[])"/>
+            method.
+            </remarks>
+            <param name="message">is a message to process</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Builder.FileReportBuilder">
+            <summary>The goal of the class is to generate optimization report and store it as file.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.FileReportBuilder.#ctor(iText.Pdfoptimizer.Report.Message.SeverityLevel,iText.Pdfoptimizer.Report.Publisher.IReportPublisher)">
+            <summary>Creates in an instance of the builder with the provided publisher.</summary>
+            <param name="level">is a minimal accepted severity level of event</param>
+            <param name="publisher">
+            is an instance of
+            <see cref="T:iText.Pdfoptimizer.Report.Publisher.IReportPublisher"/>
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.FileReportBuilder.Build">
+            <summary>
+            Generates a report using
+            <see cref="T:iText.Pdfoptimizer.Report.Publisher.IReportPublisher"/>.
+            </summary>
+            <returns>
+            
+            <inheritDoc/>
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Builder.LogReportBuilder">
+            <summary>The goal of the class is to log optimization messages using logging library.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.LogReportBuilder.#ctor(iText.Pdfoptimizer.Report.Message.SeverityLevel,iText.Pdfoptimizer.Report.Decorator.IMessageDecorator)">
+            <summary>
+            Creates a
+            <see cref="T:iText.Pdfoptimizer.Report.Builder.LogReportBuilder"/>
+            which will be used to log optimizations.
+            </summary>
+            <param name="minimalLevel">
+            the minimal
+            <see cref="T:iText.Pdfoptimizer.Report.Message.SeverityLevel"/>
+            of a log messages to be accepted
+            by this
+            <see cref="T:iText.Pdfoptimizer.Report.Builder.LogReportBuilder"/>
+            </param>
+            <param name="decorator">
+            the
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.IMessageDecorator"/>
+            to be used to decorate log messages
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Builder.LogReportBuilder.ProcessMessage(iText.Pdfoptimizer.Report.Message.ReportMessage)">
+            <summary>Stores message and logs it using logger.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Decorator.DefaultMessageDecorator">
+            <summary>
+            The class is responsible for building string representation of the
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            according to the following pattern: <c>[SEVERITY] Location: Message</c>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.DefaultMessageDecorator.DecorateMessage(iText.Pdfoptimizer.Report.Message.ReportMessage)">
+            <summary>Displays severity of the message, its source and its content.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Decorator.DefaultReportDecorator">
+            <summary>
+            This is the default implementation of the
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.IReportDecorator"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.DefaultReportDecorator.GetHeader">
+            <summary>Creates an empty header.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.DefaultReportDecorator.GetFooter">
+            <summary>Creates an empty footer.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.DefaultReportDecorator.GetSeparator">
+            <summary>Uses \r\n as a separator.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Decorator.IMessageDecorator">
+            <summary>
+            Used to create custom representations of
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            as String.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.IMessageDecorator.DecorateMessage(iText.Pdfoptimizer.Report.Message.ReportMessage)">
+            <summary>
+            Converts
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            into a string.
+            </summary>
+            <param name="message">is a message of the optimization report</param>
+            <returns>string representation of the message</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Decorator.IReportDecorator">
+            <summary>Used to create custom representations of optimization report.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.IReportDecorator.GetHeader">
+            <summary>Retrieves a header of the optimization report.</summary>
+            <remarks>
+            Retrieves a header of the optimization report. It will be appended to the report before any
+            message.
+            </remarks>
+            <returns>the header of the optimization report, may be null</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.IReportDecorator.GetFooter">
+            <summary>Retrieves a footer of the optimization report.</summary>
+            <remarks>
+            Retrieves a footer of the optimization report. It will be appended to the report after all
+            messages
+            </remarks>
+            <returns>the footer of the optimization report, may be null</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.IReportDecorator.GetSeparator">
+            <summary>Retrieves a bunch of symbols used to separate different messages.</summary>
+            <returns>the separator</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Decorator.LogMessageDecorator">
+            <summary>
+            THe class is responsible for building string representation of the
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            according to the following pattern: <c>Location: Message</c> if location is not empty and
+            <c>Message</c> otherwise.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Decorator.LogMessageDecorator.DecorateMessage(iText.Pdfoptimizer.Report.Message.ReportMessage)">
+            <summary>Displays source of the message (if it is not empty) and its content.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Location.LocationStack">
+            <summary>The class allows to build custom analogue of the stacktrace which does not use reflection.</summary>
+            <remarks>
+            The class allows to build custom analogue of the stacktrace which does not use reflection. The
+            goal is to support fast and light-weighted mechanism of identifying the root of any messages
+            appeared during optimization process.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Location.LocationStack.EnterLocation(System.String)">
+            <summary>Add a new location into location stack.</summary>
+            <param name="location">is a string representation of the new location</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Location.LocationStack.LeaveLocation">
+            <summary>Removes top-level location from location stack.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Location.LocationStack.GetCurrentLocation">
+            <summary>Gets string representation for top-level location which is consider as actual location.</summary>
+            <returns>string representation for top-level location</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Location.LocationStack.GetFullStack">
+            <summary>Gets string representation full location stack.</summary>
+            <returns>string representation for location stack</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Message.ReportMessage">
+            <summary>The class is used to store single messages generated during PDF optimization process.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.ReportMessage.#ctor(iText.Pdfoptimizer.Report.Message.SeverityLevel,System.DateTime,System.String,System.String)">
+            <summary>Creates an instance of a optimization report message.</summary>
+            <param name="level">
+            is a
+            <see cref="T:iText.Pdfoptimizer.Report.Message.SeverityLevel"/>
+            of the message
+            </param>
+            <param name="time">is a time when the message was generated</param>
+            <param name="location">is a string representation of the origin of the message</param>
+            <param name="message">is a text of the message</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.ReportMessage.GetLevel">
+            <summary>
+            Retrieves current
+            <see cref="T:iText.Pdfoptimizer.Report.Message.SeverityLevel"/>.
+            </summary>
+            <returns>type of the message</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.ReportMessage.GetTime">
+            <summary>Retrieves the time when the message was generated.</summary>
+            <returns>time</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.ReportMessage.GetLocation">
+            <summary>Retrieves a location where message was generated.</summary>
+            <remarks>
+            Retrieves a location where message was generated. This is a light-weighted analogue of stack
+            trace mechanism.
+            </remarks>
+            <returns>an origin of the message as String</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.ReportMessage.GetMessage">
+            <summary>Retrieves content of the message.</summary>
+            <returns>text of the message</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Message.ReportMessageConstants">
+            <summary>A storage of message constants for optimization reports.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Message.SeverityLevel">
+            <summary>
+            The enum is used to distinguish instances of
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            according to their
+            severity level.
+            </summary>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Report.Message.SeverityLevel.INFO">
+            <summary>Minimal severity level which marks messages and events with info level.</summary>
+            <remarks>
+            Minimal severity level which marks messages and events with info level. It is designed
+            to notify a user about expected behaviour.
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Report.Message.SeverityLevel.WARNING">
+            <summary>Medium severity level which marks messages and events with warning level.</summary>
+            <remarks>
+            Medium severity level which marks messages and events with warning level. It is designed
+            to notify a user about non-critical issues.
+            </remarks>
+        </member>
+        <member name="F:iText.Pdfoptimizer.Report.Message.SeverityLevel.ERROR">
+            <summary>Maximum severity level which marks messages and events with error level.</summary>
+            <remarks>
+            Maximum severity level which marks messages and events with error level. It is designed
+            to notify a user about critical issues.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Message.SeverityLevel.IsAccepted(iText.Pdfoptimizer.Report.Message.SeverityLevel)">
+            <summary>Checks if current severity level is not less then provided minimal severity level.</summary>
+            <param name="minimalLevel">is a minimal level of severity</param>
+            <returns>
+            true if this severity level is not less then provided minimal severity level and
+            false otherwise
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.OptimizationResult">
+            <summary>The class represents result of optimization process.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.OptimizationResult.#ctor(System.Collections.Generic.IList{iText.Pdfoptimizer.Report.Message.ReportMessage})">
+            <summary>Creates a new instance of optimization result with provided list of messages.</summary>
+            <param name="messages">is a list of messages generated during the optimization process</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.OptimizationResult.GetMessages">
+            <summary>Gets the list of messages logged during the optimization process.</summary>
+            <returns>list of messages</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher">
+            <summary>Class is used to configure optimization report and save it to file.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.#ctor(System.IO.FileInfo)">
+            <summary>
+            Creates a new instance of ReportPublisher with
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.DefaultReportDecorator"/>
+            as a decorator
+            and with
+            <see cref="F:iText.Pdfoptimizer.Report.Message.SeverityLevel.INFO"/>
+            as a minimal severity level.
+            </summary>
+            <param name="file">is a file where report should be placed</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.#ctor(iText.Pdfoptimizer.Report.Decorator.IReportDecorator,System.IO.FileInfo)">
+            <summary>
+            Creates a new instance of ReportPublisher with provided
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.IReportDecorator"/>
+            , a minimal
+            severity level and a path to a file with the report.
+            </summary>
+            <param name="decorator">is a report decorator to set</param>
+            <param name="file">is a file where report should be placed</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.GetDecorator">
+            <summary>
+            Gets
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.IReportDecorator"/>
+            of the publisher.
+            </summary>
+            <returns>current decorator</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.SetDecorator(iText.Pdfoptimizer.Report.Decorator.IReportDecorator)">
+            <summary>
+            Sets
+            <see cref="T:iText.Pdfoptimizer.Report.Decorator.IReportDecorator"/>
+            to the publisher.
+            </summary>
+            <param name="decorator">is a report decorator to set</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.GetFile">
+            <summary>Gets the file where report should be placed.</summary>
+            <returns>file</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.SetFile(System.IO.FileInfo)">
+            <summary>Sets the file where report should be placed.</summary>
+            <param name="file">is a new file</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.FileReportPublisher.PublishReport(System.Collections.Generic.IList{iText.Pdfoptimizer.Report.Message.ReportMessage})">
+            <summary>
+            Generates report based on
+            <see cref="T:iText.Pdfoptimizer.Report.Builder.DefaultReportBuilder"/>
+            and saves it to file.
+            </summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Report.Publisher.IReportPublisher">
+            <summary>Interface is used to configure and publish optimization report.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Report.Publisher.IReportPublisher.PublishReport(System.Collections.Generic.IList{iText.Pdfoptimizer.Report.Message.ReportMessage})">
+            <summary>Generates report based on list of messages and saves it to file.</summary>
+            <param name="messages">
+            is a list of
+            <see cref="T:iText.Pdfoptimizer.Report.Message.ReportMessage"/>
+            to publish
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator">
+            <summary>Statistics aggregator which aggregates profile names of optimize events.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator.#ctor">
+            <summary>
+            Creates a
+            <see cref="T:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator"/>
+            to aggregate profile names of optimize events.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator.Aggregate(iText.Commons.Actions.AbstractStatisticsEvent)">
+            <summary>Aggregates profile name from the provided event.</summary>
+            <param name="event">
+            
+            <see cref="T:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent"/>
+            instance
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator.RetrieveAggregation">
+            <summary>Retrieves Map where keys are profile names and values are the amounts of such PDF documents.</summary>
+            <returns>
+            aggregated
+            <see cref="!:System.Collections.IDictionary&lt;K, V&gt;"/>
+            </returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator.Merge(iText.Commons.Actions.AbstractStatisticsAggregator)">
+            <summary>Merges data about amounts of profile names from the provided aggregator into this aggregator.</summary>
+            <param name="aggregator">
+            
+            <see cref="T:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsAggregator"/>
+            from which data will be taken
+            </param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent">
+            <summary>Class which represents event for defining profile in PdfOptimizer.</summary>
+            <remarks>Class which represents event for defining profile in PdfOptimizer. Only for internal usage.</remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent.#ctor(iText.Pdfoptimizer.PdfOptimizerProfile,iText.Commons.Actions.Data.ProductData)">
+            <summary>
+            Creates an instance of this class based on the
+            <see cref="T:iText.Commons.Actions.Data.ProductData"/>
+            and the profile name.
+            </summary>
+            <param name="pdfOptimizerProfile">the name of the profile which is used when the event was sent</param>
+            <param name="productData">is a description of the product which has generated an event</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent.CreateStatisticsAggregatorFromName(System.String)">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent.GetStatisticsNames">
+            <summary><inheritDoc/></summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Statistics.ProfileNameStatisticsEvent.GetPdfOptimizerProfile">
+            <summary>Gets name of profile used in PDF document during optimization of which these event was send.</summary>
+            <returns>the name of profile</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.DocumentStructureUtils">
+            <summary>
+            Util class for typical tasks across the whole structure of
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.DocumentStructureUtils.Search(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.Util.Traversing.IPdfObjectPredicate)">
+            <summary>Collects all objects matches the provided predicate.</summary>
+            <param name="document">
+            is a
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            to perform a search
+            </param>
+            <param name="predicate">
+            is a
+            <see cref="T:iText.Pdfoptimizer.Util.Traversing.IPdfObjectPredicate"/>
+            </param>
+            <returns>list of all indirect objects match the predicate</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.DocumentStructureUtils.Traverse(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.Util.Traversing.IAction)">
+            <summary>
+            Goes across all the structure of the document starting from indirect objects definition and
+            then through its children recursively.
+            </summary>
+            <remarks>
+            Goes across all the structure of the document starting from indirect objects definition and
+            then through its children recursively. Every met indirect object definition is processed
+            by
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessIndirectObjectDefinition(iText.Kernel.Pdf.PdfObject)"/>
+            and every met object including
+            both types direct and indirect are is processed with
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            call. Allows to replace objects during traversing (see
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            for details).
+            </remarks>
+            <param name="document">
+            is a
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            to perform a traversing
+            </param>
+            <param name="action">is an action to perform during traversing</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.DocumentStructureUtils.TraverseRecursively(iText.Kernel.Pdf.PdfObject,iText.Pdfoptimizer.Util.Traversing.IAction)">
+            <summary>
+            Traverses the
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            recursively and every met object including both types direct and
+            indirect are is processed with
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            call.
+            </summary>
+            <remarks>
+            Traverses the
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            recursively and every met object including both types direct and
+            indirect are is processed with
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            call. Allows to replace
+            objects during traversing (see
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            for details).
+            <para />
+            Note that root object will not be processed by the
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            </remarks>
+            <param name="object">
+            is a
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to perform a traversing
+            </param>
+            <param name="action">is an action to perform during traversing</param>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.EqualityUtils">
+            <summary>
+            Class is used to perform comparison by content between two instances of
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            avoiding infinity recursions in case when the same indirect objects stores itself as
+            a part of internal state.
+            </summary>
+            <remarks>
+            Class is used to perform comparison by content between two instances of
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            avoiding infinity recursions in case when the same indirect objects stores itself as
+            a part of internal state.
+            <para />
+            Note that it is expected that compared objects are valid PdfObjects. It means that only indirect
+            objects (
+            <see cref="M:iText.Kernel.Pdf.PdfObject.IsIndirect"/>
+            is true) may be a reason of the recursion. Therefore
+            certain checks done only for them. It can be possible to create a PdfObject manually for which
+            equals / hashCode calculation will not work correctly.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.EqualityUtils.GetHashCode(iText.Kernel.Pdf.PdfObject)">
+            <summary>Calculates a hash for the object.</summary>
+            <remarks>
+            Calculates a hash for the object. If
+            <see cref="M:System.Object.GetHashCode"/>
+            is overridden for the
+            class then it will be called. Otherwise custom calculation will be done.
+            <para />
+            Two instances will have equal hashCode if they are considered as equal by
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqual(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject)"/>
+            method.
+            <para />
+            Note that checks to avoid infinity recursions are done only for indirect objects
+            (
+            <see cref="M:iText.Kernel.Pdf.PdfObject.IsIndirect"/>
+            is true).
+            </remarks>
+            <param name="object">
+            is a
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            whose content-based hash code to compute
+            </param>
+            <returns>a content-based hash code</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqual(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject)">
+            <summary>Checks the equality of two object.</summary>
+            <remarks>
+            Checks the equality of two object. If
+            <see cref="M:System.Object.Equals(System.Object)"/>
+            ()} is overridden for the
+            class then it will be called. Otherwise custom calculation will be done.
+            <para />
+            If is possible that two objects cannot be compared because they are nested in each other
+            or each into itself. In such case equality check for objects obj1 and obj2 may depend on the
+            equality check for the same objects. To avoid infinity recursion in such cases equality check
+            of nested objects will return true.
+            <para />
+            For example if array A contains as its only element array B and array B contains
+            as its only element array B then equals(A, B) will return true. It is because the first
+            elements of each array are B and A respectively and during the whole process of comparison
+            of A and B arrays any nested pair of A and B will be considered as equal. As the only
+            elements of each array are considered as equal the result of equality check of two arrays
+            will be true.
+            <para />
+            However if array A contains array B and a PdfNumber 1 and array B contains array A and a
+            PdfNumber 2 then will be considered as not equal. Equality check for the first elements of
+            each array will return true as above but the second elements are different: 1 is not
+            equal to 2. That is the reason why arrays A and B will be considered as not equal.
+            <para />
+            Note that checks to avoid inifinity recursions are done only for indirect objects
+            (
+            <see cref="M:iText.Kernel.Pdf.PdfObject.IsIndirect"/>
+            is true).
+            </remarks>
+            <param name="obj1">
+            is the first
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to compare
+            </param>
+            <param name="obj2">
+            is the second
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to compare
+            </param>
+            <returns>true if objects are considered as equal</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.EqualityUtils.GetHashCodeAvoidRecursion(iText.Kernel.Pdf.PdfObject,System.Collections.Generic.ICollection{iText.Kernel.Pdf.PdfIndirectReference},System.Collections.Generic.IDictionary{iText.Kernel.Pdf.PdfIndirectReference,System.Nullable{System.Int32}})">
+            <summary>Calculates a hash for the object.</summary>
+            <param name="object">
+            is a
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            whose content-based hash code to compute
+            </param>
+            <param name="calculating">
+            is a set of
+            <see cref="T:iText.Kernel.Pdf.PdfIndirectReference"/>
+            to objects for which
+            has calculation process in progress. If any of this object will be met
+            again during calculation default hash value will be returned to avoid
+            infinity recursion.
+            </param>
+            <param name="calculated">
+            is a map of
+            <see cref="T:iText.Kernel.Pdf.PdfIndirectReference"/>
+            to objects for which
+            hash was already calculated. Every reference is associated with the hash
+            of corresponding object so that it can be reused without one more
+            calculation.
+            </param>
+            <returns>a hash for the object</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqualAvoidRecursion(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject,System.Collections.Generic.ICollection{iText.Pdfoptimizer.Util.SymmetricPair})">
+            <summary>Checks the equality of two object.</summary>
+            <param name="obj1">
+            is the first
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to compare
+            </param>
+            <param name="obj2">
+            is the second
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to compare
+            </param>
+            <param name="calculated">
+            is a set of pair which have been already compared or comparison is in
+            progress. For compared pairs it is true that if they are not equal then
+            equality check have had to be stopped with negative result already. Also if
+            comparison is in progress then for the same pair of nested objects
+            equality check should return true. See
+            <see cref="M:iText.Pdfoptimizer.Util.EqualityUtils.AreEqual(iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject)"/>
+            for details.
+            </param>
+            <returns>true if objects are considered equal and false otherwise</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.PdfAConformanceChecker">
+            <summary>Class to check PDF-A conformance level for documents.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.PdfAConformanceChecker.IsPdfADocument(iText.Kernel.Pdf.PdfDocument)">
+            <summary>Check is specific document has any PDF-A conformance.</summary>
+            <param name="document">to check it's PDF-A conformance</param>
+            <returns>true if it's PDF-A document, otherwise false.</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.PdfAConformanceChecker.IsPdfA1Document(iText.Kernel.Pdf.PdfDocument)">
+            <summary>Check is specific document has PDF-A1 conformance.</summary>
+            <param name="document">to check it's PDF-A1 conformance</param>
+            <returns>true if it's PDF-A1 document, otherwise false.</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.PdfObjectSizeCalculationUtil">
+            <summary>
+            Util class for calculating the size of an
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            in bytes, which it will take in PDF.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.PdfObjectSizeCalculationUtil.CalculateImageStreamLengthInBytes(iText.Kernel.Pdf.Xobject.PdfImageXObject,iText.Kernel.Pdf.PdfDocument)">
+            <summary>
+            Calculates the length of an
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            stream in bytes, which it will take in PDF.
+            </summary>
+            <remarks>
+            Calculates the length of an
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            stream in bytes, which it will take in PDF.
+            <para />
+            Some important notes:
+            <list type="bullet">
+            <item><description>This method doesn't change the original
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            which passed to this
+            method, because a copy is being created.
+            </description></item>
+            <item><description>The length of an
+            <see cref="T:iText.Kernel.Pdf.Xobject.PdfImageXObject"/>
+            stream is calculated without taking into account
+            internal fields.
+            </description></item>
+            </list>
+            </remarks>
+            <param name="imageXObject">an image whose stream length in bytes will be calculated</param>
+            <param name="pdfDocument">the PDF document into which, as a result, the original imageXObject will be written
+                </param>
+            <returns>the passed image stream length in bytes</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.SymmetricPair">
+            <summary>Storage for two objects without strict order.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.SymmetricPair.#ctor(System.Object,System.Object)">
+            <summary>Creates a new instance of the class with two provided objects.</summary>
+            <remarks>
+            Creates a new instance of the class with two provided objects. The order of the objects is
+            not significant.
+            </remarks>
+            <param name="obj1">is one object to store</param>
+            <param name="obj2">is another object</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.SymmetricPair.Equals(System.Object)">
+            <summary>Performs equality check for this and that pairs.</summary>
+            <remarks>
+            Performs equality check for this and that pairs. Two SymmetricPairs will be considered as
+            equal if and only if one object of the first pair is equal to one object of the second pair
+            and another object of the first pair is equal to another object of the second pair. Order of
+            objects is not significant.
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.SymmetricPair.GetHashCode">
+            <summary>
+            Performs a symmetrical hash calculation which depends on hashes of stored objects but does
+            not depend on the order of objects.
+            </summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.Traversing.IAction">
+            <summary>
+            Defines an action performing during recursive traversing across
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            structure.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessIndirectObjectDefinition(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Performs a required action with each definition of indirect
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            of the
+            document.
+            </summary>
+            <remarks>
+            Performs a required action with each definition of indirect
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            of the
+            document. Note that every indirect object will also be independently processed by
+            <see cref="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)"/>
+            method once per every indirect reference
+            to the object in the document.
+            </remarks>
+            <param name="object">is an indirect object definition to process</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.IAction.ProcessObject(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Performs a required action with the each
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            of the document.
+            </summary>
+            <remarks>
+            Performs a required action with the each
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            of the document. It works with
+            both directs and indirect objects witch have a parent object. Currently it doesn't deal with
+            keys of dictionaries.
+            </remarks>
+            <param name="object">
+            is a current
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            </param>
+            <returns>
+            an object that should replace current one. Can be the same instance as argument
+            to avoid replacement
+            </returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.Traversing.IPdfObjectPredicate">
+            <summary>
+            Representation of predicate for where
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            is used an argument.
+            </summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.IPdfObjectPredicate.Test(iText.Kernel.Pdf.PdfObject)">
+            <summary>Evaluates this predicate on the given argument.</summary>
+            <param name="object">is an argument</param>
+            <returns>is a result of evaluation</returns>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.Traversing.ReplaceObjectsAction">
+            <summary>Replace objects in document structure according to provided rule.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.ReplaceObjectsAction.#ctor(System.Collections.Generic.IDictionary{iText.Kernel.Pdf.PdfObject,iText.Kernel.Pdf.PdfObject})">
+            <summary>Performs objects replacement according to a provided schema.</summary>
+            <remarks>
+            Performs objects replacement according to a provided schema. There are several
+            limitations:
+            <list type="bullet">
+            <item><description>
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            to be replaced is identified by
+            <see cref="M:System.Object.Equals(System.Object)"/>
+            method. Depending on the class implementation it might comparing by content or by reference.
+            </description></item>
+            <item><description>no transitivity is allowed. An object cannot replace the second object and be
+            replaced by the third one.
+            </description></item>
+            </list>
+            </remarks>
+            <param name="schema">
+            is a schema of replacement. It is a map where a key stands for the object to
+            be replaced and the value stands for the object to replace.
+            </param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.ReplaceObjectsAction.ProcessIndirectObjectDefinition(iText.Kernel.Pdf.PdfObject)">
+            <summary>Does nothing as indirect object cannot be replaced.</summary>
+            <remarks>
+            Does nothing as indirect object cannot be replaced. If it has to be removed, it will be
+            ignored on flushing as unused indirect object (supposing that
+            <see cref="M:iText.Kernel.Pdf.PdfDocument.IsFlushUnusedObjects"/>
+            is set to false).
+            </remarks>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.ReplaceObjectsAction.ProcessObject(iText.Kernel.Pdf.PdfObject)">
+            <summary>Replaces object if necessary according to the provided schema.</summary>
+        </member>
+        <member name="T:iText.Pdfoptimizer.Util.Traversing.SearchAction">
+            <summary>Collects all objects matches the provided predicate.</summary>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.SearchAction.#ctor(iText.Pdfoptimizer.Util.Traversing.IPdfObjectPredicate)">
+            <summary>Creates a new instance of searching action.</summary>
+            <param name="predicate">is a criteria for search</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.SearchAction.GetFoundObjects">
+            <summary>
+            Retrieves objects found in structure of some
+            <see cref="T:iText.Kernel.Pdf.PdfDocument"/>
+            with use of
+            <see cref="M:iText.Pdfoptimizer.Util.DocumentStructureUtils.Traverse(iText.Kernel.Pdf.PdfDocument,iText.Pdfoptimizer.Util.Traversing.IAction)"
+                />.
+            </summary>
+            <returns>list of found objects</returns>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.SearchAction.ProcessIndirectObjectDefinition(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Evaluates this predicate on the given indirect
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            definition and adds it
+            to search results if object matches the condition.
+            </summary>
+            <param name="object">is an indirect object to process</param>
+        </member>
+        <member name="M:iText.Pdfoptimizer.Util.Traversing.SearchAction.ProcessObject(iText.Kernel.Pdf.PdfObject)">
+            <summary>
+            Evaluates this predicate on the given
+            <see cref="T:iText.Kernel.Pdf.PdfObject"/>
+            and adds it to search results
+            if object matches the condition.
+            </summary>
+            <param name="object">is an direct object to process</param>
+        </member>
+    </members>
+</doc>
