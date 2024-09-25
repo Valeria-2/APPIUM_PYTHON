@@ -1,21 +1,25 @@
-#################### Arquetipo Winium & SikuliX ####################
+## Arquetipo Winium & SikuliX
 
-Este repositorio cuenta con un arquetipo el cual está customizado para la generación de scripts automatizados basados en Winium, SikuliX, Csharp y NUnit como Framework de Testing. La estructura aquí presentada está diseñada con el objetivo de estandarizar la generación y mantenimiento del script automatizado basado en buenas practicas que dicta la industria.
+Este repositorio cuenta con un arquetipo personalizado, diseñado específicamente para facilitar la creación de scripts automatizados, utilizando herramientas como Winium, SikuliX, C# y NUnit como marco de trabajo para pruebas. La estructura aquí propuesta no solo busca estandarizar la generación y el mantenimiento de estos scripts, sino que también promueve la adopción de buenas prácticas que son ampliamente reconocidas en la industria.
 
-#################### Instalación ####################
+La implementación de este arquetipo tiene como finalidad optimizar el proceso de automatización, garantizando un enfoque escalable, eficiente y de fácil mantenimiento para proyectos a largo plazo. De esta manera, se asegura la consistencia en el desarrollo de scripts, lo que contribuye a mejorar la calidad y fiabilidad del software sometido a pruebas automatizadas.
+
+## Instalación
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
-1. Ingresar a la URL: https://github.com/Axitymx/24_AXITY_AR35_A_WASAT_WINIUM_C-
+1. Ingresar a la URL:
 
-2. Ingresar a la sección Code (Seleccionar alguna de las opciones para clonar el repositorio de manera local)
-      - ** Utilizando la URL** https://github.com/Axitymx/24_AXITY_AR35_A_WASAT_WINIUM_C-.git por HTTPS
-      - ** Utilizando la instrucción** gh repo clone Axitymx/24_AXITY_AR35_A_WASAT_WINIUM_C-
+         https://github.com/Valeria-2/APPIUM_PYTHON
+
+3. Ingresar a la sección Code (Seleccionar alguna de las opciones para clonar el repositorio de manera local)
+      - **Utilizando la URL** https://github.com/Valeria-2/APPIUM_PYTHON.git por HTTPS
+      - **Utilizando la instrucción** gh repo clone https://github.com/Valeria-2/APPIUM_PYTHON.git
         - **Abrirlo con GitHub Desktop**
         - **Abrirlo con Visual Studio**
         - **Descargarlo con ZIP**
 
-3. Una vez descargada la solución tendremos la siguiente estructura de carpetas:
+4. Una vez descargada la solución tendremos la siguiente estructura de carpetas:
       - **WiniumSikulixArquetipo**
           - **src**
             - **drivers**
@@ -63,13 +67,13 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 8. Se debe dar clic derecho y seleccionar la opción Compilar. (Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria). 
 
-#################### Uso #################### 
+## Estructura de Framework
 
-1. En la sección de Explorador de Soluciones, encontraremos las siguientes carpetas: 
+En la sección de Explorador de Soluciones, encontraremos las siguientes carpetas: 
 
-    - **drivers**
-    - **main**
-    - **test**
+- **drivers**
+- **main**
+- **test**
 
 2. En la carpeta de drivers encontraremos los drivers necesarios para poder automatizar en los distintos navegadores como lo son Google Chrome, Mozilla FireFox y Microsoft Edge, Así mismo encontraremos el driver de Winium Winium.Desktop.Driver, el cual es una herramienta para inspeccionar los elementos de tipo Desktop.
 
@@ -85,53 +89,56 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 5. En la carpeta de Test encontraremos las carpetas:
 
-   - ** Screenshots**: En esta carpeta encontraremos los screenshot tomados para la generación del reporte
+   - **Screenshots**: En esta carpeta encontraremos los screenshot tomados para la generación del reporte
    
-   - ** TestCases**:
+   - **TestCases**
    
-     - ** TestSuiteBotones.cs: este código representa una suite de pruebas para probar los botones de una calculadora utilizando Selenium y Sikuli. Cada método de prueba se centra en probar un botón específico de la calculadora.**
+     - **TestSuiteBotones.cs**: este código representa una suite de pruebas para probar los botones de una calculadora utilizando Selenium y Sikuli. Cada método de prueba se centra en probar un botón específico de la calculadora.
 
-     - ** TestSuiteDiv.cs: este código representa una prueba de división de dos números en una calculadora utilizando Selenium y Sikuli. El método de prueba hace clic en los botones correspondientes para realizar la división y no realiza ninguna verificación específica en este momento.**
+     - **TestSuiteDiv.cs**: este código representa una prueba de división de dos números en una calculadora utilizando Selenium y Sikuli. El método de prueba hace clic en los botones correspondientes para realizar la división y no realiza ninguna verificación específica en este momento.
 
-     - ** TestSuiteFnTrigo.cs: este código representa pruebas automatizadas para verificar el funcionamiento de la función trigonométrica de seno en una calculadora científica, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario**
+     - **TestSuiteFnTrigo.cs**: este código representa pruebas automatizadas para verificar el funcionamiento de la función trigonométrica de seno en una calculadora científica, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario
 
-     - ** TestSuiteMulti.cs: este código representa una prueba automatizada de la función de multiplicación en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario.**
+     - **TestSuiteMulti.cs**: este código representa una prueba automatizada de la función de multiplicación en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario.
 
-     - ** TestSuiteResta.cs: este código representa una prueba automatizada de la función de resta en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario**
+     - **TestSuiteResta.cs**: este código representa una prueba automatizada de la función de resta en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario
 
-     - ** TestSuiteSumas.cs: este código representa una prueba automatizada de la función de suma en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario**
+     - **TestSuiteSumas.cs**: este código representa una prueba automatizada de la función de suma en una calculadora, utilizando Selenium y Sikuli para interactuar con la interfaz de usuario y simular las acciones del usuario
 
    - **TestData**
 
-     - ** Encontraremos insumos (Archivos Excel), los cuales nos apoyaran en caso de necesitar realizar iteraciones sobre algun flujo o proceso automatizado.**
+     - **Encontraremos insumos (Archivos Excel), los cuales nos apoyaran en caso de necesitar realizar iteraciones sobre algun flujo o proceso automatizado.**
    
    - **TestReport**
 
-     - ** Insumos**: En esta carpeta encontraremos dos subcarpetas, la primera A4 en donde están las imágenes correspondientes al layout que utilizará el reporte en su generación y la de Fonts que como su nombre lo dice son las fuentes utilizadas para la generación del reporte.
+     - **Insumos**: En esta carpeta encontraremos dos subcarpetas, la primera A4 en donde están las imágenes correspondientes al layout que utilizará el reporte en su generación y la de Fonts que como su nombre lo dice son las fuentes utilizadas para la generación del reporte.
    
-     - ** Lectura Archivos**: En resumen, esta clase proporciona funcionalidad para leer un archivo CSV que contiene datos de informes de pruebas y convertir cada línea del archivo en objetos ReportModel, que contienen información específica de cada informe de prueba.
+     - **Lectura Archivos**: En resumen, esta clase proporciona funcionalidad para leer un archivo CSV que contiene datos de informes de pruebas y convertir cada línea del archivo en objetos ReportModel, que contienen información específica de cada informe de prueba.
 
-     - ** Models**: En resumen, esta clase proporciona una estructura de datos para almacenar información detallada sobre los informes de prueba, incluyendo detalles sobre el proyecto, la ejecución, los casos de prueba y los resultados de los pasos de prueba.
+     - **Models**: En resumen, esta clase proporciona una estructura de datos para almacenar información detallada sobre los informes de prueba, incluyendo detalles sobre el proyecto, la ejecución, los casos de prueba y los resultados de los pasos de prueba.
 
-     - ** Utility**: Estas constantes proporcionan nombres y textos predefinidos que se utilizan en la generación de informes de pruebas automatizadas, lo que hace que el proceso de generación de informes sea más consistente y fácil de mantener.
+     - **Utility**: Estas constantes proporcionan nombres y textos predefinidos que se utilizan en la generación de informes de pruebas automatizadas, lo que hace que el proceso de generación de informes sea más consistente y fácil de mantener.
 
-#################### Software Requerido ####################
+## Software Requerido
 
 - **Se requiere Java 1.8**
+- **IDE Microsoft Visual Studio 2022 Community**
+- **Git**
 
-#################### Configuración #################### 
+## Configuración
 
-  - ** Es de vital importancia que los paquetes Nuget se han instalado de forma satisfactoria. Respecto a las configuraciones fueron detalladas a nivel de cada uno de los archivos aquí mencionados.**
+  - **Es de vital importancia que los paquetes Nuget se han instalado de forma satisfactoria. Respecto a las configuraciones fueron detalladas a nivel de cada uno de los archivos aquí mencionados.**
 
-#################### Ejemplos #################### 
+## Ejemplos
 
-  - ** En la sección test_cases, encontraremos las clases TestSuiteDS50.cs, TestSuiteSEL.cs y TestSuiteTAE.cs, estas clases de prueba NUnit realiza una prueba simple donde se consume el punto de venta. Este tipo de estructura de prueba es comúnmente utilizada para realizar pruebas de funcionalidades básicas de un sitio web utilizando Winium, Sikulix y NUnit. **
+  - En la sección test_cases, encontraremos las clases TestSuiteDS50.cs, TestSuiteSEL.cs y TestSuiteTAE.cs, estas clases de prueba NUnit realiza una prueba simple donde se consume el punto de venta. Este tipo de estructura de prueba es comúnmente utilizada para realizar pruebas de funcionalidades básicas de un sitio web utilizando Winium, Sikulix y NUnit.
   
-#################### Contribución ####################: Si la solución es de código abierto, incluye pautas sobre cómo contribuir al proyecto, como instrucciones para enviar solicitudes de extracción, reportar problemas, etc.
+## Contribución
+Si la solución es de código abierto, incluye pautas sobre cómo contribuir al proyecto, como instrucciones para enviar solicitudes de extracción, reportar problemas, etc.
   
-  - ** Para realizar contribuciones a este proyecto se debe realizar un backup de la solución de manera local para que se adapte a las necesidades del proyecto en donde se desea implementar**
+  - **Para realizar contribuciones a este proyecto se debe realizar un backup de la solución de manera local para que se adapte a las necesidades del proyecto en donde se desea implementar**
 
-#################### Créditos ####################
+## Créditos 
 
 Las personas que han contribuido a la solución.
 
@@ -139,11 +146,11 @@ Las personas que han contribuido a la solución.
   - **Gustavo David Ramírez Ledesma**
   - **Osvaldo Alfredo Zamora Reyes**
 
-#################### Licencia ####################
+## Licencia
 
-// Especifica la licencia bajo la cual se distribuye la solución y cualquier otra información legal relevante.
+**Especifica la licencia bajo la cual se distribuye la solución y cualquier otra información legal relevante.**
 
-#################### Contacto ####################
+## Contacto 
 
   - **Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com**
   - **Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com**
