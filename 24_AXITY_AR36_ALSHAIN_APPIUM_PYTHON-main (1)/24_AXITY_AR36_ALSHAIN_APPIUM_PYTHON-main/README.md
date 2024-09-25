@@ -186,6 +186,9 @@ Especifica la licencia bajo la cual se distribuye la solución y cualquier otra 
 -Valeria Cortés Jaime             valeria.cortesj@axity.com
 
 
+![inicio](./assets/CReA.png)
+
+
 
 
    
