@@ -128,6 +128,7 @@ En la sección de Explorador de Soluciones, encontraremos las siguientes carpeta
 ## Configuración
 
   - **Es de vital importancia que los paquetes Nuget se han instalado de forma satisfactoria. Respecto a las configuraciones fueron detalladas a nivel de cada uno de los archivos aquí mencionados.**
+  - **Para correr las pruebas de manera satisfactoria no se debe usar el tema oscuro de windows, ya que la calculadora requiere mostrarse en el modo claro.**
 
 ## Ejemplos
 
