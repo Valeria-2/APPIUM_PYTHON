@@ -60,25 +60,5 @@ namespace SeleniumArquetipo1.Example
             Assert.That(revealed.GetAttribute("value"), Is.EqualTo("Displayed"));
         }
 
-        [Test]
-        public void ExplicitOptions()
-        {
-            driver.Url = "https://www.selenium.dev/selenium/web/dynamic.html";
-            IWebElement revealed = driver.FindElement(By.Id("revealed"));
-            driver.FindElement(By.Id("reveal")).Click();
-
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(2))
-            {
-                PollingInterval = TimeSpan.FromMilliseconds(300),
-            };
-            wait.IgnoreExceptionTypes(typeof(NoSuchElementException));
-
-            wait.Until(d => {
-                revealed.SendKeys("Displayed");
-                return true;
-            });
-
-            Assert.That(revealed.TagName, Is.EqualTo("input"));
-        }
     }
 }

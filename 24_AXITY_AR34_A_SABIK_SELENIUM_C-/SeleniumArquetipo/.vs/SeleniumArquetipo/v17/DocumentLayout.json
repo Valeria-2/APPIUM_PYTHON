@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|c:\\users\\andres.cortes\\documents\\selenium_c\\appium_python\\24_axity_ar34_a_sabik_selenium_c-\\seleniumarquetipo\\src\\main\\core\\baseedgetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|solutionrelative:src\\main\\core\\baseedgetest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|c:\\users\\andres.cortes\\documents\\selenium_c\\appium_python\\24_axity_ar34_a_sabik_selenium_c-\\seleniumarquetipo\\example\\waitsexameple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|solutionrelative:example\\waitsexameple.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|c:\\users\\andres.cortes\\documents\\selenium_c\\appium_python\\24_axity_ar34_a_sabik_selenium_c-\\seleniumarquetipo\\src\\main\\pages\\loginpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|solutionrelative:src\\main\\pages\\loginpage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|c:\\users\\andres.cortes\\documents\\selenium_c\\appium_python\\24_axity_ar34_a_sabik_selenium_c-\\seleniumarquetipo\\src\\test\\test_cases\\tc_botones\\chrome\\testsuitebotones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|solutionrelative:src\\test\\test_cases\\tc_botones\\chrome\\testsuitebotones.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|c:\\users\\andres.cortes\\documents\\selenium_c\\appium_python\\24_axity_ar34_a_sabik_selenium_c-\\seleniumarquetipo\\src\\test\\test_cases\\tc_end_to_end\\chrome\\testsuitechrome2e2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AD524752-F2CD-4800-BF1F-6E7E2418D867}|SeleniumArquetipo.csproj|solutionrelative:src\\test\\test_cases\\tc_end_to_end\\chrome\\testsuitechrome2e2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BaseEdgeTest.cs",
+              "DocumentMoniker": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\main\\core\\BaseEdgeTest.cs",
+              "RelativeDocumentMoniker": "src\\main\\core\\BaseEdgeTest.cs",
+              "ToolTip": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\main\\core\\BaseEdgeTest.cs",
+              "RelativeToolTip": "src\\main\\core\\BaseEdgeTest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T18:03:37.154Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WaitsExameple.cs",
+              "DocumentMoniker": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\example\\WaitsExameple.cs",
+              "RelativeDocumentMoniker": "example\\WaitsExameple.cs",
+              "ToolTip": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\example\\WaitsExameple.cs",
+              "RelativeToolTip": "example\\WaitsExameple.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T18:01:43.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LogInPage.cs",
+              "DocumentMoniker": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\main\\pages\\LogInPage.cs",
+              "RelativeDocumentMoniker": "src\\main\\pages\\LogInPage.cs",
+              "ToolTip": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\main\\pages\\LogInPage.cs",
+              "RelativeToolTip": "src\\main\\pages\\LogInPage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T17:56:42.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TestsuiteBotones.cs",
+              "DocumentMoniker": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\test\\test_cases\\tc_botones\\Chrome\\TestsuiteBotones.cs",
+              "RelativeDocumentMoniker": "src\\test\\test_cases\\tc_botones\\Chrome\\TestsuiteBotones.cs",
+              "ToolTip": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\test\\test_cases\\tc_botones\\Chrome\\TestsuiteBotones.cs",
+              "RelativeToolTip": "src\\test\\test_cases\\tc_botones\\Chrome\\TestsuiteBotones.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T17:56:29.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TestSuiteChrome2E2.cs",
+              "DocumentMoniker": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\test\\test_cases\\tc_end_to_end\\Chrome\\TestSuiteChrome2E2.cs",
+              "RelativeDocumentMoniker": "src\\test\\test_cases\\tc_end_to_end\\Chrome\\TestSuiteChrome2E2.cs",
+              "ToolTip": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\src\\test\\test_cases\\tc_end_to_end\\Chrome\\TestSuiteChrome2E2.cs",
+              "RelativeToolTip": "src\\test\\test_cases\\tc_end_to_end\\Chrome\\TestSuiteChrome2E2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T17:53:37.939Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

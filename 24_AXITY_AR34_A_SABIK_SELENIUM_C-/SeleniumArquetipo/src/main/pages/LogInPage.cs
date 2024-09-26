@@ -15,7 +15,8 @@ namespace SeleniumArquetipo1.Src.Main.Pages
         public readonly By usernameInput = By.XPath("//input[@name='username']");
         public readonly By passwordInput = By.XPath("//input[@name='password']");
         public readonly By loginButton = By.XPath("//button[@type='submit']");
-        public readonly By mensajeobligatorio2 = By.XPath("(//span[contains(.,'Obligatorio')])[2]");
+        //public readonly By mensajeobligatorio2 = By.XPath("(//span[contains(.,'Obligatorio')])[2]");
+        public readonly By mensajeobligatorio2 = By.XPath("(//span[contains(@class,'message')])[1]");
 
 
 

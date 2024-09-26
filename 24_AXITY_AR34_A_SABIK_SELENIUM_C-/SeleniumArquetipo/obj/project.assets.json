@@ -7700,24 +7700,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mauricio.Gurrola\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Andres.Cortes\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mauricio.Gurrola\\Documents\\1 DevSecOps_Fase2\\Arquetipos\\Selenium\\ArquetipoSelenium\\SeleniumArquetipo\\SeleniumArquetipo.csproj",
+      "projectUniqueName": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\SeleniumArquetipo.csproj",
       "projectName": "SeleniumArquetipo",
-      "projectPath": "C:\\Users\\Mauricio.Gurrola\\Documents\\1 DevSecOps_Fase2\\Arquetipos\\Selenium\\ArquetipoSelenium\\SeleniumArquetipo\\SeleniumArquetipo.csproj",
-      "packagesPath": "C:\\Users\\Mauricio.Gurrola\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mauricio.Gurrola\\Documents\\1 DevSecOps_Fase2\\Arquetipos\\Selenium\\ArquetipoSelenium\\SeleniumArquetipo\\obj\\",
+      "projectPath": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\SeleniumArquetipo.csproj",
+      "packagesPath": "C:\\Users\\Andres.Cortes\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Andres.Cortes\\Documents\\SELENIUM_C\\APPIUM_PYTHON\\24_AXITY_AR34_A_SABIK_SELENIUM_C-\\SeleniumArquetipo\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Mauricio.Gurrola\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Andres.Cortes\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7737,6 +7732,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -7852,7 +7852,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

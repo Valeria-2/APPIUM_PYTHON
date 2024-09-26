@@ -15,12 +15,12 @@ namespace SeleniumArquetipo1.Src.Test.TestCases.TC_2E2.Chrome
         public void ValidLogIn()
         {
             //Arrange
-            TestSuiteChrome testSuiteChrome = new();
-            testSuiteChrome.EntrarPagina();
+            driver.Navigate().GoToUrl(WebConfig.WebsiteUrl);
             LoginPage loginPage = new(driver);
 
             //ACT
             loginPage.LogInValidUser("Admin", "admin123");
+            loginPage.ClickLoginButton();
 
             //ASSERT
             Assert.That(driver.Url, Is.EqualTo("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"));
