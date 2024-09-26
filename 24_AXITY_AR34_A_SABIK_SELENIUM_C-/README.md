@@ -2,6 +2,17 @@
 
 Este repositorio contiene un arquetipo personalizado para la generación de scripts automatizados utilizando Selenium Web Driver, C# y NUnit como framework de testing. La estructura propuesta está diseñada con el objetivo de estandarizar la creación y el mantenimiento de scripts automatizados, siguiendo las buenas prácticas recomendadas por la industria.
 
+## Índice
+
+1. [Istalacion](#Instalación)
+2. [Uso](#Uso)
+3. [Configuración](#Configuración)
+4. [Ejemplos](#Ejemplos)
+5. [Contribución](#Contribución)
+6. [Créditos](#Créditos)
+7. [Licencia](#Licencia)
+8. [Contacto](#Contacto)
+
 ## Instalación 
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
