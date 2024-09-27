@@ -6,24 +6,23 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 
 ## INDICE
 
-1. *[INSTALACION](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#instalaci%C3%B3n)*
-2. *[ESTRUCTURA DEL FRAMEWORK](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#estructura-de-framework)*
-3. *[SOFTWARE REQUERIDO](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#software-requerido)*
-4. *[CONFIGURACIÓN]()*
-5. *[EJEMPLOS]()*
-6. *[CONTRIBUCION]()*
-7. *[CREDITOS]()*
-8. *[LICENCIA]()*
-9. *[CONTACTO]()*
-
-
-
-
-
-
-
+1. *INSTALACION*
+2. *ESTRUCTURA DEL FRAMEWORK*
+3. *SOFTWARE REQUERIDO*
+4. *CONFIGURACIÓN*
+5. *EJEMPLOS*
+6. *CONTRIBUCION*
+7. *CREDITOS*
+8. *LICENCIA*
+9. *CONTACTO*
 
 ## Instalación
+
+Las versiones requeridas y probadas para su implementación son:  
+- Visual Studio 2022 <br>
+            https://visualstudio.microsoft.com/es/ 
+- GitHub
+            https://git-scm.com/downloads
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
@@ -38,45 +37,11 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
         - **Abrirlo con Visual Studio**
         - **Descargarlo con ZIP**
 
-4. Una vez descargada la solución tendremos la siguiente estructura de carpetas:
-      - **WiniumSikulixArquetipo**
-          - **src**
-            - **drivers**
-            - **main**
-              - **config**
-              - **core**
-              - **pages**
-                - **cientifica**
-                    - **image_patterns**
-                - **estandar**
-                    - **image_patterns**
-                - **general**
-                    - **image_patterns**
-              - **utils**
-                - **Actions**
-            - **test**
-                - **screenshots**
-                - **test_cases**
-                    - **test_suite_botones**
-                    - **test_suite_division**
-                    - **test_suite_funciones_trigonometricas**
-                    - **test_suite_multiplicacion**
-                    - **test_suite_resta**
-                    - **test_suite_sumas**
-                - **test_data**
-                    - **excel**
-                - **test_report**
-                    - **insumos**
-                        - **A4**
-                        - **Fonts**
-                    - **lectura_archivos**
-                    - **models**
-                    - **utility**
-            - **app.config**
-            - **app.config.jar**
-            - **packages.config**
-            - **README.md**
-            - **sikulirestapi-1.0.jar**
+4. Una vez descargada la solución debemos seguir los siguientes pasos para poder ejecutar la solución y pruebas. <br>
+            <br> - Abrir la carpetaAR35_Wasat_Winium.<br>
+            - Entrar a la carpeta ArquetipoSikulixWinnium.<br><br>
+
+     
 
 5. Abrir el archivo "WiniumSikulixArquetipo.sln" en el IDE Microsoft Visual Studio 2022 (Community, Professional o Enterprise).
 
