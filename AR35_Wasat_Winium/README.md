@@ -4,6 +4,25 @@ Este repositorio cuenta con un arquetipo personalizado, diseñado específicamen
 
 La implementación de este arquetipo tiene como finalidad optimizar el proceso de automatización, garantizando un enfoque escalable, eficiente y de fácil mantenimiento para proyectos a largo plazo. De esta manera, se asegura la consistencia en el desarrollo de scripts, lo que contribuye a mejorar la calidad y fiabilidad del software sometido a pruebas automatizadas.
 
+## INDICE
+
+1. *[INSTALACION](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#instalaci%C3%B3n)*
+2. *[ESTRUCTURA DEL FRAMEWORK](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#estructura-de-framework)*
+3. *[SOFTWARE REQUERIDO](https://github.com/Valeria-2/APPIUM_PYTHON/edit/main/AR35_Wasat_Winium/README.md#software-requerido)*
+4. *[CONFIGURACIÓN]()*
+5. *[EJEMPLOS]()*
+6. *[CONTRIBUCION]()*
+7. *[CREDITOS]()*
+8. *[LICENCIA]()*
+9. *[CONTACTO]()*
+
+
+
+
+
+
+
+
 ## Instalación
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
