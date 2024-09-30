@@ -6,16 +6,15 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 
 ## INDICE
 
-1. *INSTALACION*
-2. *ESTRUCTURA DEL FRAMEWORK*
-3. *SOFTWARE REQUERIDO*
-4. *CONFIGURACIÓN*
-5. *EJEMPLOS*
-6. *CONTRIBUCION*
-7. *CREDITOS*
-8. *LICENCIA*
-9. *CONTACTO*
-
+1. [Istalacion](#Instalación)
+2. [Estructura del Framework](#Estructura-delFramework)
+3. [Software Requerido](#Software-Requerido)
+4. [Configuración](#Configuración)
+5. [Ejemplos](#Ejemplos)
+6. [Contribución](#Contribución)
+7. [Créditos](#Créditos)
+8. [Licencia](#Licencia)
+9. [Contacto](#Contacto)
 ## Instalación
 
 Las versiones requeridas y probadas para su implementación son:  
