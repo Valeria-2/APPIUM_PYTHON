@@ -29,14 +29,14 @@ Las versiones requeridas y probadas para su implementación son:
             git clone https://github.com/Valeria-2/APPIUM_PYTHON.git
 
 2. Una vez clonado el repositorio: <br>
-   a. Abrir la carpeta *_ 24_AXITY_AR34_A_SABIK_SELENIUM_C- _*
-   b. Entrar a la carpeta *_SeleniumArquetipo_*
-   c. Localizar el archivo *_SeleniumArquetipo.sln_* y abrirlo con _Visual Studio 2024_
+    - Abrir la carpeta *_ 24_AXITY_AR34_A_SABIK_SELENIUM_C- _*
+    - Entrar a la carpeta *_SeleniumArquetipo_*
+    - Localizar el archivo *_SeleniumArquetipo.sln_* y abrirlo con _Visual Studio 2024_
      
 3. En la sección de Explorador de Soluciones: <br>
-   a. Se debe seleccionar el archivo raíz Selenium Arquetipo
-   b. Se debe dar clic derecho y seleccionar la opción **Limpiar**
-   c. Se debe dar clic derecho y seleccionar la opción **Compilar**
+   - Se debe seleccionar el archivo raíz Selenium Arquetipo
+   - Se debe dar clic derecho y seleccionar la opción **Limpiar**
+   - Se debe dar clic derecho y seleccionar la opción **Compilar**
 
 NOTA : Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria. 
 
