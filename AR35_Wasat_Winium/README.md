@@ -6,7 +6,7 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 
 ## INDICE
 
-1. [Istalacion](#Instalación)
+1. [Instalacion](#Instalación)
 2. [Estructura del Framework](#Estructura-delFramework)
 3. [Software Requerido](#Software-Requerido)
 4. [Configuración](#Configuración)
@@ -50,7 +50,7 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 8. Se debe dar clic derecho y seleccionar la opción Compilar. (Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria). 
 
-## Estructura de Framework
+## Estructura del Framework
 
 En la sección de Explorador de Soluciones, encontraremos las siguientes carpetas: 
 
