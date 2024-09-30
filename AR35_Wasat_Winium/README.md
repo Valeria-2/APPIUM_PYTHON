@@ -21,7 +21,7 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 Las versiones requeridas y probadas para su implementación son:  
 - Visual Studio 2022 <br>
             https://visualstudio.microsoft.com/es/ 
-- GitHub
+- GitHub <br>
             https://git-scm.com/downloads
 
 Para implementar el arquetipo se necesitas seguir los siguientes pasos:
@@ -140,3 +140,16 @@ Las personas que han contribuido a la solución.
   - **Mauricio Gurrola Sánchez         mauricio.gurrola@axity.com**
   - **Gustavo David Ramírez Ledesma    gustavo.ramirez@axity.com**
   - **Osvaldo Alfredo Zamora Reyes      osvaldo.zamor@axity.com**
+    
+
+
+##
+
+<br>
+
+![image](https://github.com/user-attachments/assets/2a29f6f3-a512-458b-a223-bf0484f9bcc3)
+
+<br>
+
+### Este ARTE forma parte del CReA de Axity, para más información visitar [CReA]
+*[CReA - Inicio (sharepoint.com)](https://intellego365.sharepoint.com/sites/CentralAxity/Corporativo/CReA/SitePages/Home.aspx?xsdata=MDV8MDJ8fGUwYzYzYzgwOGNmZjRjMzIyY2JhMDhkY2UxNjg5ZmU0fDAwYTA1Y2UwYmQzZDQyMTVhNTY5YzYyNjFhMjBhMzllfDB8MHw2Mzg2MzMwODY2NTUxNDcxOTR8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKV0lqb2lNQzR3TGpBd01EQWlMQ0pRSWpvaVYybHVNeklpTENKQlRpSTZJazkwYUdWeUlpd2lWMVFpT2pFeGZRPT18MXxMMk5vWVhSekx6RTVPbTFsWlhScGJtZGZUVWRGZWsweVdtbE5hbGwwV2tkS2FFNURNREJOTWxGNlRGUm5kMXBYU1hSTk1rbDNUMVJqZDFsdFVtaE5iVlpxUUhSb2NtVmhaQzUyTWk5dFpYTnpZV2RsY3k4eE56STNOekV4T0RZME56UTB8N2YzMGEyNjYxOTIzNGJkYTJjYmEwOGRjZTE2ODlmZTR8NjE3Y2VhMTRlZDA3NDY3ZGI1OWQxNDdjNGQ0OWY2NGI%3D&sdata=Yk5iaWpjWkoycW13ODdENUI1b05nNTFyRzI2bnlBUkJOZ1RCM0tYUU1QVT0%3D&ovuser=00a05ce0-bd3d-4215-a569-c6261a20a39e%2CPedro.Espinosa%40axity.com&OR=Teams-HL&CT=1727714402558&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDA4MTcwMDQyMSIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D)*
