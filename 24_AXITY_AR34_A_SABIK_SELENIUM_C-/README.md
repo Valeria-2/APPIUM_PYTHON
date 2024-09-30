@@ -37,6 +37,7 @@ Las versiones requeridas y probadas para su implementación son:
    - Se debe seleccionar el archivo raíz Selenium Arquetipo
    - Se debe dar clic derecho y seleccionar la opción **Limpiar**
    - Se debe dar clic derecho y seleccionar la opción **Compilar**
+   - Por ultimo, se debe dar clic  derecho y seleccionar **Ejecutar Pruebas**
 
 NOTA : Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria. 
 
