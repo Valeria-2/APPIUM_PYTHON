@@ -7,7 +7,7 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 ## INDICE
 
 1. [Instalacion](#Instalación)
-2. [Estructura del Framework](#Estructura-delFramework)
+2. [Estructura del Framework](#Estructura_del_Framework)
 3. [Software Requerido](#Software-Requerido)
 4. [Configuración](#Configuración)
 5. [Ejemplos](#Ejemplos)
