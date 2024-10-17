@@ -7,14 +7,15 @@ La implementación de este arquetipo tiene como finalidad optimizar el proceso d
 ## INDICE
 
 1. [Instalacion](#Instalación)
-2. [Estructura del Framework](#Estructura-del-Framework)
-3. [Software Requerido](#Software-Requerido)
-4. [Configuración](#Configuración)
-5. [Ejemplos](#Ejemplos)
-6. [Contribución](#Contribución)
-7. [Créditos](#Créditos)
-8. [Licencia](#Licencia)
-9. [Contacto](#Contacto)
+2. [Uso](#Uso)
+3. [Estructura del Framework](#Estructura-del-Framework)
+4. [Software Requerido](#Software-Requerido)
+5. [Configuración](#Configuración)
+6. [Ejemplos](#Ejemplos)
+7. [Contribución](#Contribución)
+8. [Créditos](#Créditos)
+9. [Licencia](#Licencia)
+10. [Contacto](#Contacto)
 ## Instalación
 
 Las versiones requeridas y probadas para su implementación son:  
@@ -48,7 +49,34 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 7. Se debe dar clic derecho y seleccionar la opción Limpiar para prepararla solución para su compilación.
 
-8. Se debe dar clic derecho y seleccionar la opción Compilar. (Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria). 
+8. Se debe dar clic derecho y seleccionar la opción Compilar. (Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria).
+
+## Uso
+Se tiene que abrir la aplicación de Visual Studio 2022 y seleccionar la carpeta que se genero al clonar el repositorio <br><br>
+![image](https://github.com/user-attachments/assets/a716fd62-a20a-4b6d-9dba-add5a5e17990) <br><br>
+
+Una vez abierto el proyecto en nuestro IDE de Visual studio 2022, seleccionaremos el archivo que aparece en nuestro explorador de soluciones “ArquetipoSikulixWinium.sln”, con click derecho desplegaremos la barra de opciones y seleccionaremos la opción “Limpiar”. <br><br>
+![image](https://github.com/user-attachments/assets/c1f659c2-d47c-4922-a2c4-a567651aba72)
+
+Despues de haber limpiado la solución de forma satisfactoria se debe repetir el proceso del paso anterior, pero esta vez seleccionando la opción “Compilar”. <br><br>
+![image](https://github.com/user-attachments/assets/31b4c2b9-4cef-4438-b323-7671e79289c3)
+
+Posteriormente en el explorador de pruebas se deben correr las 18 pruebas, las cuales deben correr de manera satisfactoria.<br><br>
+![image](https://github.com/user-attachments/assets/4f663a62-f420-4f18-9de1-bd15dd7c5b8f)
+
+En caso de dar error al correr todas las pruebas a la vez, se recomienda correr una por una para evitar errores.<br><br>
+![image](https://github.com/user-attachments/assets/07f611ab-3696-49de-96d3-d0b39b20eee8)
+
+Al momento de ejecutar las pruebas se abrirá por defecto la calculadora de Windows, en la cual en automático realizara las acciones que se requieren para ejecutar las pruebas.
+
+**NOTA: se recomienda no mover el cursor mientras las pruebas están en ejecución ya que puede generar errores en el proceso que se esta ejecutando.**<br><br>
+![image](https://github.com/user-attachments/assets/d37e57ba-40f9-4698-8956-0b7232cc63da)
+
+
+
+
+
+
 
 ## Estructura del Framework
 
