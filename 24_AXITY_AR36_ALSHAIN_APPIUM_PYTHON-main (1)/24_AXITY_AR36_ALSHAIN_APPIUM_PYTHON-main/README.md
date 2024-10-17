@@ -1,6 +1,10 @@
 # Arquetipo-Appium
 - Alshain es un ARTE basado en la herramienta de automatización de pruebas Appium, diseñado para realizar pruebas automatizadas en aplicaciones móviles y web. Escrito en Python, integra bibliotecas y complementos que permiten realizar pruebas exhaustivas de funcionalidades, asegurando la calidad y el correcto funcionamiento de las aplicaciones. Los resultados de las pruebas se recopilan y presentan utilizando variedades de librerías, proporcionando informes detallados que incluyen resultados de las pruebas ejecutadas, facilitando así el análisis y la mejora continua de las aplicaciones.
 
+## INDICE
+
+1. [Requerimientos de Software](#RequerimientosdeSoftware)
+
 ## Requerimientos de Software​
  - 1. PyCharm: https://www.jetbrains.com/pycharm/download/?section=windows
 
