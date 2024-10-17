@@ -3,7 +3,19 @@
 
 ## INDICE
 
-1. [Requerimientos de Software](#RequerimientosdeSoftware)
+1. [Requerimientos de Software](#Requerimientos_de_Software)
+2. [Configuracion PC](#ConfiguracionPC)
+3. [Configuracion Android Studio](#Configuracion_Android_Studio)
+4. [Configuración Appium Inspector ​](#Configuración_Appium_Inspector)
+5. [Instalación de la Aplicación Desde Android Studio ​](#Instalación_de_la_Aplicación_Desde_Android_Studio)
+6. [Instalación de la Aplicación  Desde la Terminal CMD ​](#Instalación_de_la_Aplicación_Desde_la_Terminal_CMD)
+8. [Estructura del Framework ​](#Estructura_del_Framework )
+9. [Ejecución de una prueba​](#Ejecución_de_una_prueba​)
+10. [Ejecutar multiples casos de prueba ​](#Ejecutar_multiples_casos_de_prueba)
+11. [Contribucion​](#Contribucion)
+12. [Creditos ​](#Creditos)
+13. [Licencia​](#CLicenciaC)
+14. [Contacto ​](#Contacto)
 
 ## Requerimientos de Software​
  - 1. PyCharm: https://www.jetbrains.com/pycharm/download/?section=windows
