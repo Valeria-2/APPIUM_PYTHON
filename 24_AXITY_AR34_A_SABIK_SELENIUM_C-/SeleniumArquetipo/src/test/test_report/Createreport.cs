@@ -51,7 +51,7 @@ namespace SeleniumArquetipo1.Src.Test.TestReport
             string BaseI_path = Path.Combine(A4Folder, ReportConstant.PlecaReporte);
             string Devsecops_path = Path.Combine(A4Folder, ReportConstant.DevSecOpsImagen);
 
-            DeviceRgb yellowColor = new(0xF9, 0xB0, 0x17);
+            DeviceRgb yellowColor = new(0x5C, 0x1B, 0x6C);
 
             // Generación del PDF
             PdfWriter writer = new(pdfFilePath);
@@ -254,7 +254,7 @@ namespace SeleniumArquetipo1.Src.Test.TestReport
 
         private static Table CreateProjectDataTable(ReportModel header, PdfFont font)
         {
-            DeviceRgb redColor = new(0xE4, 0x20, 0x14);
+            DeviceRgb redColor = new(0x5C, 0x1B, 0x6C);
 
             Table dataTable = new(2, false);
 
