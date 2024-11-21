@@ -14,7 +14,7 @@ namespace SeleniumAndSikuli.src.main.core
 
 {
 
-    public class BaseTest:AppConfig
+   public class BaseTest:AppConfig
     {
         APILauncher launcher = new APILauncher(true);
         public Screen screen = new Screen();
@@ -29,8 +29,12 @@ namespace SeleniumAndSikuli.src.main.core
             Screen screen = new Screen();
             DesktopOptions options = WiniumCapabilities();
             string WinDriverPath = driverPath();
-            winDriver = new WiniumDriver(WinDriverPath, options);
-           
+            winDriver = NewMethod();
+
+            WiniumDriver NewMethod()
+            {
+                return new WiniumDriver(WinDriverPath, options);
+            }
         }
 
 

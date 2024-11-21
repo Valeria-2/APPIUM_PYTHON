@@ -1,0 +1,183 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=27784, tid=0x00000000000048b0
+#
+# JRE version:  (8.0_421) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.421-b09 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000128f0318800):  JavaThread "Unknown thread" [_thread_in_vm, id=18608, stack(0x000000056e400000,0x000000056e500000)]
+
+Stack: [0x000000056e400000,0x000000056e500000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x34bb09]
+V  [jvm.dll+0x288eb2]
+V  [jvm.dll+0x289a80]
+V  [jvm.dll+0x27dd05]
+V  [jvm.dll+0x4fad]
+V  [jvm.dll+0x3e8b12]
+V  [jvm.dll+0x3e99e7]
+V  [jvm.dll+0x3e5597]
+V  [jvm.dll+0x104d9f]
+V  [jvm.dll+0x2181ab]
+V  [jvm.dll+0x24900a]
+V  [jvm.dll+0x16c266]
+C  [javaw.exe+0x2422]
+C  [javaw.exe+0x19a22]
+C  [KERNEL32.DLL+0x1257d]
+C  [ntdll.dll+0x5af28]
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000128f0318800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=18608, stack(0x000000056e400000,0x000000056e500000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+heap address: 0x00000006c4e00000, size: 4018 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 3
+Compressed class space size: 1073741824 Address: 0x00000007c0000000
+
+Heap:
+ PSYoungGen      total 75264K, used 1290K [0x000000076c500000, 0x0000000771900000, 0x00000007c0000000)
+  eden space 64512K, 2% used [0x000000076c500000,0x000000076c642900,0x0000000770400000)
+  from space 10752K, 0% used [0x0000000770e80000,0x0000000770e80000,0x0000000771900000)
+  to   space 10752K, 0% used [0x0000000770400000,0x0000000770400000,0x0000000770e80000)
+ ParOldGen       total 172032K, used 0K [0x00000006c4e00000, 0x00000006cf600000, 0x000000076c500000)
+  object space 172032K, 0% used [0x00000006c4e00000,0x00000006c4e00000,0x00000006cf600000)
+ Metaspace       used 751K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 76K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x00000128f27a0000,0x00000128f2f80000] byte_map_base: 0x00000128ef179000
+
+Marking Bits: (ParMarkBitMap*) 0x00007fffd496f200
+ Begin Bits: [0x00000128f34c0000, 0x00000128f7388000)
+ End Bits:   [0x00000128f7388000, 0x00000128fb250000)
+
+Polling page: 0x00000128f0b70000
+
+CodeCache: size=245760Kb used=329Kb max_used=329Kb free=245430Kb
+ bounds [0x0000012880000000, 0x0000012880270000, 0x000001288f000000]
+ total_blobs=58 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.014 loading class java/lang/Short
+Event: 0.014 loading class java/lang/Short done
+Event: 0.014 loading class java/lang/Integer
+Event: 0.014 loading class java/lang/Integer done
+Event: 0.014 loading class java/lang/Long
+Event: 0.014 loading class java/lang/Long done
+Event: 0.014 loading class java/lang/NullPointerException
+Event: 0.014 loading class java/lang/NullPointerException done
+Event: 0.014 loading class java/lang/ArithmeticException
+Event: 0.014 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x00007ff6daad0000 - 0x00007ff6dab1f000 	C:\Program Files\Java\jre1.8.0_421\bin\javaw.exe
+0x00007ff8cbd50000 - 0x00007ff8cbf67000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff870830000 - 0x00007ff870a02000 	C:\Program Files\Cylance\Desktop\CylanceMemDef64.dll
+0x00007ff8cafd0000 - 0x00007ff8cb094000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff8c92f0000 - 0x00007ff8c969d000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff8cb9f0000 - 0x00007ff8cbaa2000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff8c9ab0000 - 0x00007ff8c9b57000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff8cbab0000 - 0x00007ff8cbb59000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff8c9960000 - 0x00007ff8c9988000 	C:\WINDOWS\System32\bcrypt.dll
+0x00007ff8cacf0000 - 0x00007ff8cae04000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff8c9ef0000 - 0x00007ff8ca09e000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff8c9990000 - 0x00007ff8c99b6000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff8c9a80000 - 0x00007ff8c9aa9000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff8c9840000 - 0x00007ff8c9959000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff8c91e0000 - 0x00007ff8c927a000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff8c96a0000 - 0x00007ff8c97b1000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff8b3c20000 - 0x00007ff8b3eb3000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.3672_none_2713b9d173822955\COMCTL32.dll
+0x00007ff8cbcd0000 - 0x00007ff8cbd01000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007fffdc630000 - 0x00007fffdc64b000 	C:\Program Files\Java\jre1.8.0_421\bin\vcruntime140.dll
+0x00007ff84f4d0000 - 0x00007ff84f4dc000 	C:\Program Files\Java\jre1.8.0_421\bin\vcruntime140_1.dll
+0x00007fffdc6e0000 - 0x00007fffdc76e000 	C:\Program Files\Java\jre1.8.0_421\bin\msvcp140.dll
+0x00007fffd4140000 - 0x00007fffd49e9000 	C:\Program Files\Java\jre1.8.0_421\bin\server\jvm.dll
+0x00007ff8cbb60000 - 0x00007ff8cbb68000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff8a3f70000 - 0x00007ff8a3f79000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff8cb970000 - 0x00007ff8cb9e1000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff8c1d50000 - 0x00007ff8c1d84000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff8c1bb0000 - 0x00007ff8c1bba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff8c8080000 - 0x00007ff8c8098000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff8408c0000 - 0x00007ff8408d0000 	C:\Program Files\Java\jre1.8.0_421\bin\verify.dll
+0x00007fffdc600000 - 0x00007fffdc62b000 	C:\Program Files\Java\jre1.8.0_421\bin\java.dll
+0x00007fffd4120000 - 0x00007fffd4138000 	C:\Program Files\Java\jre1.8.0_421\bin\zip.dll
+0x00007ff8c68e0000 - 0x00007ff8c6b12000 	C:\WINDOWS\SYSTEM32\dbghelp.dll
+0x00007ff8ca960000 - 0x00007ff8cacee000 	C:\WINDOWS\System32\combase.dll
+0x00007ff8cb0a0000 - 0x00007ff8cb177000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ff8c97c0000 - 0x00007ff8c983b000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+
+VM Arguments:
+java_command: C:\Users\Pedro.Espinosa\Documents\Arquetipos\APPIUM_PYTHON\AR35_Wasat_Winium\ArquetipoSikulixWinnium\bin\Debug\sikulirestapi-1.0.jar
+java_class_path (initial): C:\Users\Pedro.Espinosa\Documents\Arquetipos\APPIUM_PYTHON\AR35_Wasat_Winium\ArquetipoSikulixWinnium\bin\Debug\sikulirestapi-1.0.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jre1.8.0_421
+PATH=C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Python311\Scripts\;C:\Program Files\Python311\;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\Microsoft SQL Server\140\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\nodejs\;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Java\jre1.8.0_421\bin;C:\Users\Pedro.Espinosa\AppData\Local\Programs\Python\Launcher\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\Pedro.Espinosa\AppData\Local\Microsoft\WindowsApps;C:\Users\Pedro.Espinosa\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Pedro.Espinosa\AppData\Roaming\npm;C:\Users\Pedro.Espinosa\AppData\Local\GitHubDesktop\bin;C:\Users\Pedro.Espinosa\.dotnet\tools
+USERNAME=Pedro.Espinosa
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 154 Stepping 4, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22621 (10.0.22621.3958)
+
+CPU:total 12 (initial active 12) (6 cores per cpu, 2 threads per core) family 6 model 154 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 16452664k(3858088k free), swap 47585460k(5068k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.421-b09) for windows-amd64 JRE (1.8.0_421-b09), built on Jun  5 2024 13:01:06 by "java_re" with MS VC++ 17.6 (VS2022)
+
+time: Wed Oct  2 13:05:52 2024
+timezone: Hora estándar central (México)
+elapsed time: 0.037600 seconds (0d 0h 0m 0s)
+

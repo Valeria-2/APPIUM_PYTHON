@@ -33,6 +33,7 @@ namespace SeleniumAndSikuli.src.tests.test_cases.test_suite_calculadora
             screen.Click(menubtn);
             screen.Click(cientificabtn);
 
+
             //ASSERT
             Assert.That(screen.Exists(cientificabtn), Is.True, "El botón para cambiar a Calculadora cientifica no se ha presionado correctamente.");
 
@@ -53,10 +54,10 @@ namespace SeleniumAndSikuli.src.tests.test_cases.test_suite_calculadora
             Pattern Boton4 = new Pattern(btn4, 0.2);
             Pattern Boton5 = new Pattern(btn5);
             Pattern Fntrigobtn = new Pattern(fntrigo);
-            Pattern Fnsenobtn = new Pattern(fnseno,0.3);
+            Pattern Fnsenobtn = new Pattern(fnseno, 0.3);
 
             //ACT
-          
+
             screen.Click(Boton4);
             screen.Click(Boton5);
             screen.Click(Fntrigobtn);
@@ -75,10 +76,10 @@ namespace SeleniumAndSikuli.src.tests.test_cases.test_suite_calculadora
             Accions accions = new Accions(winDriver);
             var paso1 = new ReportModel();
 
-            paso1.NombreProyecto = "Folio de Pago 2.0";
+            paso1.NombreProyecto = "ArquetipoSikulixWinium";
             paso1.InicioEjecuccion = DateTime.Now;
             paso1.StatusEjecuccion = "Pasado";
-            paso1.Precondiciones = "Se debe de usar la versión Windows 10";
+            paso1.Precondiciones = "Se debe de usar la versión Windows 10 o Windows 11 siguiendo las recomendaciones del documento WORD";
             paso1.NombreCasoPrueba = TestContext.CurrentContext.Test.MethodName;
             paso1.DescCasoPrueba = "Se debe de verificar que la funcion trigonometrica Seno funcione correctamente";
             paso1.NombreScript = Path.GetFileName(TestContext.CurrentContext.Test.ClassName);
@@ -155,7 +156,7 @@ namespace SeleniumAndSikuli.src.tests.test_cases.test_suite_calculadora
                 screen.Click(Fntrigobtn);
                 screen.Click(Fnsenobtn);
 
-                Thread.Sleep(500);  
+                Thread.Sleep(500);
                 paso3.InputRoute = accions.TakeScreenshot();
 
 
