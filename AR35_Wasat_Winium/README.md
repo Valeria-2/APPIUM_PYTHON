@@ -51,6 +51,14 @@ Para implementar el arquetipo se necesitas seguir los siguientes pasos:
 
 8. Se debe dar clic derecho y seleccionar la opción Compilar. (Cuando se compila la solución se debe validar que los paquetes Nuget de la sección de Dependencias se hayan descargado de manera satisfactoria).
 
+##
+
+**Antes de proceder a ejecutar las pruebas, se deben tener en cuenta las siguientes consideraciones para que puedan ser ejecutadas con exito:** 
+- Debe de ser ejecutado una con el IDE Microsoft Visual Studio Community 2022 (Logo morado)
+- Debe de ejecutarse en pantalla principal, no monitores o pantallas segundarias.
+- La calculadora debe de estan con el tema claro, no oscuro.
+- Se recomienda no mover el cursor mientras las pruebas están en ejecución ya que puede generar errores en el proceso que se esta ejecutando.
+
 ## Uso
 Se tiene que abrir la aplicación de Visual Studio 2022 y seleccionar la carpeta que se genero al clonar el repositorio <br><br>
 ![image](https://github.com/user-attachments/assets/a716fd62-a20a-4b6d-9dba-add5a5e17990) <br><br>
@@ -69,7 +77,6 @@ En caso de dar error al correr todas las pruebas a la vez, se recomienda correr 
 
 Al momento de ejecutar las pruebas se abrirá por defecto la calculadora de Windows, en la cual en automático realizara las acciones que se requieren para ejecutar las pruebas.
 
-**NOTA: se recomienda no mover el cursor mientras las pruebas están en ejecución ya que puede generar errores en el proceso que se esta ejecutando.**<br><br>
 ![image](https://github.com/user-attachments/assets/d37e57ba-40f9-4698-8956-0b7232cc63da)
 
 
